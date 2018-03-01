@@ -2,6 +2,10 @@
 layout: post
 title: Stanford Machine Learning Lecture Notes
 ---
-## What is Machine Learning?
+# What is Machine Learning?
 Types of Machine learning algorithms:
-$$ \begin{cases} \text{Supervised learning} \\ \text{Unsupervised learning} \\ \text{Others: Reinforcement learnig, Recommender systems} \end{cases} $$
+1. Supervised learning
+2. Unsupervised learning
+3. Others: Reinforcement learnig, Recommender systems
+
+
