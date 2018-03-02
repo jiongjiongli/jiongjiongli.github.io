@@ -8,4 +8,4 @@ Types of Machine learning algorithms:
 2. Unsupervised learning
 3. Others: Reinforcement learnig, Recommender systems
 
-
+![Machine Learning Process](/images/Machine-Learning-Process.png "Machine Learning Process")
