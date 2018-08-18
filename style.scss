@@ -299,8 +299,14 @@ footer {
 
 table{
   width:100%; /*must be set (to any value)*/
+    table-layout: auto;
+    border-collapse: collapse;
+}
+table td {
+    border: 1px solid #ccc;
 }
 
 .overflow-wrap-hack{
   max-width:100px;
+  width:100%;
 }
