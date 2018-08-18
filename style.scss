@@ -289,6 +289,9 @@ footer {
 @import "svg-icons";
 
 // table
+.table-nowrap{
+  white-space:nowrap;
+}
 .table-content{
   word-wrap:break-word; /*old browsers*/
   overflow-wrap:break-word;
@@ -299,5 +302,5 @@ table{
 }
 
 .overflow-wrap-hack{
-  max-width:50px;
+  max-width:100px;
 }
