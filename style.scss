@@ -287,3 +287,17 @@ footer {
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
 @import "svg-icons";
+
+// table
+.table-content{
+  word-wrap:break-word; /*old browsers*/
+  overflow-wrap:break-word;
+}
+
+table{
+  width:100%; /*must be set (to any value)*/
+}
+
+.overflow-wrap-hack{
+  max-width:1px;
+}
