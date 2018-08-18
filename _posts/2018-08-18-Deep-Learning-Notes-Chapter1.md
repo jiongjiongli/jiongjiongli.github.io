@@ -10,12 +10,12 @@ title: Deep Learning Notes: Chapter 1 Introduction
 
 # Deep Learning Chapter 1 Introduction
 
-| Concept | Chinese | Description |
+<!-- | Concept | Chinese | Description |
 | - | - | - |
 | Artificial Intelligence (AI) | 人工智能 | Intelligent software to automate routine labor, understand speech or images, make diagnoses in medicine and support basic scientific research. |
 | Machine Learning | 机器学习 | AI systems acquire their own knowledge by extracting patterns from raw data. |
 | Representation Learning | 表示学习 | Use machine learning to discover not only the mapping from representation to output but also the representation itself. |
-| AI Deep Learning | AI 深度学习 | Computers learn from experience and understand the world in terms of a hierarchy of concepts. |
+| AI Deep Learning | AI 深度学习 | Computers learn from experience and understand the world in terms of a hierarchy of concepts. | -->
 
 
 In the early days of AI, the field rapidly tackled and solved problems that are intellectually difficult for human beings but relatively straightforward for computers --- problems that can be described by a list of formal (形式化), mathematical rules. 
@@ -38,13 +38,14 @@ A solution: Deep learning.
 Method: Introducing representations that are expressed in terms of other, simpler representations.
 
 Two main ways of measuring the depth of a mode:
+
 1. The depth of the computational graph.
 2. the depth of the graph describing how concepts are related to each other. It is used by deep probabilistic models, 
 
-# 个人总结
+<!-- # 个人总结
 
 | 概念 | 输入 | 输出 |
 | - | - | - |
 | Simple machine Learning | 特征 | 最终结果 |
 | Representation Learning | 原始数据 | 特征 |
-| Deep Learning | 原始数据 | 多层次特征，就像一棵树，上一层特征是下一层特征的抽象。下一层特征更简单。 |
+| Deep Learning | 原始数据 | 多层次特征，就像一棵树，上一层特征是下一层特征的抽象。下一层特征更简单。 | -->
