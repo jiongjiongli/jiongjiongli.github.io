@@ -4,10 +4,12 @@ title: Deep Learning Notes: Chapter 1 Introduction
 ---
 
 # 前言
+
 最近开始读[《Deep Learning》](https://github.com/zsdonghao/deep-learning-book)一书。这让我有了一个边读书边写笔记的动机：能够让人很轻松流畅的把握住这本书的脉络，从而读懂这本书的核心内容。
 由于终究是英文表达更地道，因此该笔记都是节选自书中的原文。只有在我比较有把握的情况下才会给个别概念加上中文翻译。另外，“个人总结”部分是我自己的总结。各位读者如果有建议或意见，欢迎留言。谢谢！
 
 # Deep Learning Chapter 1 Introduction
+
 | Concept | Chinese | Description |
 | - | - | - |
 | Artificial Intelligence (AI) | 人工智能 | Intelligent software to automate routine labor, understand speech or images, make diagnoses in medicine and support basic scientific research. |
@@ -40,6 +42,7 @@ Two main ways of measuring the depth of a mode:
 2. the depth of the graph describing how concepts are related to each other. It is used by deep probabilistic models, 
 
 # 个人总结
+
 | 概念 | 输入 | 输出 |
 | - | - | - |
 | Simple machine Learning | 特征 | 最终结果 |
