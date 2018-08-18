@@ -301,10 +301,11 @@ table{
   width:100%; /*must be set (to any value)*/
     table-layout: auto;
     border-collapse: collapse;
-}
-table, td, th {
     border: 1px solid #ccc;
-    padding: 5px;
+}
+td, th {
+    border: 1px solid #ccc;
+    padding: 10px;
 }
 
 .overflow-wrap-hack{
