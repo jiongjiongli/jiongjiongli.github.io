@@ -302,10 +302,10 @@ table{
     table-layout: auto;
     border-collapse: collapse;
     border: 1px solid #ccc;
+    cellpadding="10px";
 }
 td, th {
     border: 1px solid #ccc;
-    padding: 10px;
 }
 
 .overflow-wrap-hack{
