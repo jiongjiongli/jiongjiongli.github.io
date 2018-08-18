@@ -11,7 +11,7 @@ title: Deep Learning Notes - Chapter 1
 # Deep Learning Chapter 1: Introduction
 
 | Concept | Chinese | Description |
-|-------|--------|---------|
+|------------------------------|---------|-------------|
 | Artificial Intelligence (AI) | 人工智能 | Intelligent software to automate routine labor, understand speech or images, make diagnoses in medicine and support basic scientific research. |
 | Machine Learning | 机器学习 | AI systems acquire their own knowledge by extracting patterns from raw data. |
 | Representation Learning | 表示学习 | Use machine learning to discover not only the mapping from representation to output but also the representation itself. |
@@ -44,7 +44,7 @@ Two main ways of measuring the depth of a mode:
 # 个人总结
 
 | 概念 | 输入 | 输出 |
-|-------|--------|---------|
+|------------------------|---------|-----------|
 | Simple machine Learning | 特征 | 最终结果 |
 | Representation Learning | 原始数据 | 特征 |
 | Deep Learning | 原始数据 | 多层次特征，就像一棵树，上一层特征是下一层特征的抽象。下一层特征更简单。 |
