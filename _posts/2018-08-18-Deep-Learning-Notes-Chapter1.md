@@ -10,13 +10,37 @@ title: Deep Learning Notes - Chapter 1
 
 # Deep Learning Chapter 1: Introduction
 
-| Concept | Chinese | Description |
-|------------------------------|---------|-------------|
-| Artificial Intelligence (AI) | 人工智能 | Intelligent software to automate routine labor, understand speech or images, make diagnoses in medicine and support basic scientific research. |
-| Machine Learning | 机器学习 | AI systems acquire their own knowledge by extracting patterns from raw data. |
-| Representation Learning | 表示学习 | Use machine learning to discover not only the mapping from representation to output but also the representation itself. |
-| AI Deep Learning | AI 深度学习 | Computers learn from experience and understand the world in terms of a hierarchy of concepts. |
-
+<table>
+<tr>
+	<th class="table-nowrap">Concept</th>
+	<th class="table-nowrap">Chinese</th>
+	<th class="overflow-wrap-hack">Description</th>
+</tr>
+<tr>
+	<td class="table-nowrap">Artificial Intelligence (AI)</td>
+    <td class="table-nowrap">人工智能</td>
+    <td>
+    <div class="table-content">Intelligent software to automate routine labor, understand speech or images, make diagnoses in medicine and support basic scientific research.
+    </div>
+    </td>
+</tr>
+<tr>
+	<td class="table-nowrap">Machine Learning</td>
+    <td class="table-nowrap">机器学习</td>
+    <td>
+    <div class="table-content">AI systems acquire their own knowledge by extracting patterns from raw data.
+    </div>
+    </td>
+</tr>
+<tr>
+	<td class="table-nowrap">AI Deep Learning</td>
+    <td class="table-nowrap">AI 深度学习</td>
+    <td>
+    <div class="table-content">Computers learn from experience and understand the world in terms of a hierarchy of concepts.
+    </div>
+    </td>
+</tr>
+</table>
 
 In the early days of AI, the field rapidly tackled and solved problems that are intellectually difficult for human beings but relatively straightforward for computers --- problems that can be described by a list of formal (形式化), mathematical rules. 
 Reason: Abstract and formal tasks that are among the most difficult mental undertakings for a human being are among the easiest for a computer.
@@ -38,13 +62,48 @@ A solution: Deep learning.
 Method: Introducing representations that are expressed in terms of other, simpler representations.
 
 Two main ways of measuring the depth of a mode:
+
 1. The depth of the computational graph.
 2. the depth of the graph describing how concepts are related to each other. It is used by deep probabilistic models, 
 
 # 个人总结
 
-| 概念 | 输入 | 输出 |
-|------------------------|---------|-----------|
-| Simple machine Learning | 特征 | 最终结果 |
-| Representation Learning | 原始数据 | 特征 |
-| Deep Learning | 原始数据 | 多层次特征，就像一棵树，上一层特征是下一层特征的抽象。下一层特征更简单。 |
+<table>
+<tr>
+	<th class="table-nowrap">概念</th>
+	<th class="table-nowrap">输入</th>
+	<th class="overflow-wrap-hack">输出</th>
+</tr>
+<tr>
+	<td class="table-nowrap">Simple machine Learning</td>
+    <td class="table-nowrap">人工智能</td>
+    <td>
+    <div class="table-content">Intelligent software to automate routine labor, understand speech or images, make diagnoses in medicine and support basic scientific research.
+    </div>
+    </td>
+</tr>
+<tr>
+	<td class="table-nowrap">Machine Learning</td>
+    <td class="table-nowrap">特征</td>
+    <td>
+    <div class="table-content">最终结果
+    </div>
+    </td>
+</tr>
+<tr>
+	<td class="table-nowrap">Representation Learning</td>
+    <td class="table-nowrap">原始数据</td>
+    <td>
+    <div class="table-content">特征
+    </div>
+    </td>
+</tr>
+<tr>
+	<td class="table-nowrap">Deep Learning</td>
+    <td class="table-nowrap">原始数据</td>
+    <td>
+    <div class="table-content">多层次特征，就像一棵树，上一层特征是下一层特征的抽象。下一层特征更简单。 
+    </div>
+    </td>
+</tr>
+</table>
