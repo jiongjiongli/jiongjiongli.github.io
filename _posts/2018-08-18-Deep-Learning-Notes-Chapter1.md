@@ -5,7 +5,7 @@ title: Deep Learning Notes - Chapter 1
 
 # Preface
 
-最近开始阅读[《Deep Learning》](https://github.com/zsdonghao/deep-learning-book)。这让我有了一个边读书边写笔记的动机：写一个这样的笔记，能够让人流畅的把握住这本书的脉络，从而读懂这本书的核心内容。
+最近开始阅读[《Deep Learning》](https://github.com/zsdonghao/deep-learning-book)。这让我有了一个边读书边写笔记的动机：写一个这样的笔记，能够让人容易把握住这本书的脉络，从而读懂这本书的核心内容。
 由于终究是英文表达更地道，因此该笔记都是节选自书中的原文。只有在我比较有把握的情况下才会给个别概念加上中文翻译。另外，“个人总结”部分是我自己的总结。各位读者如果有建议或意见，欢迎[联系](mailto:jiongjiongai@outlook.com)指正。谢谢！
 
 # Deep Learning Chapter 1: Introduction
