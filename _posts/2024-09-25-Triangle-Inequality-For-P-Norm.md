@@ -1,11 +1,7 @@
 ---
 layout: post
-title: Deep Learning Notes - Chapter 1
+title: Triangle Inequality for P-Norm
 ---
-
-# Triangle Inequality for P-Norm
-
-**Author:** Jiongjiong Li
 
 ## Theorem
 
