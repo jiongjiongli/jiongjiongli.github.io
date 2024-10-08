@@ -4,7 +4,10 @@ title: Modern Hopfield Network
 ---
 
 ## Definition
+### Notations
+
 $$
+\text{The }p\text{-norm of a vector is denoted} \left \lVert {\cdot} \right \rVert _p\text{,} 1 \leqslant p\text{.} \\
 \beta > 0, \beta \in \mathbb {R} \\
 \left[ N \right] = \left\{1, \cdots, N \right\}
 $$
