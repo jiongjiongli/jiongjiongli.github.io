@@ -56,7 +56,7 @@ $$
 \vec{\mathbf {z}}^T \left(\operatorname{diag}\left(\vec{\mathbf {p}}\right) - \vec{\mathbf {p}}\vec{\mathbf {p}}^T \right) \vec{\mathbf {z}} = \sum_{i} p_i {z_i}^2 - \left({\sum_{i} p_i z_i}\right)^2 \geqslant 0
 $$
 
-### Patterns, Query / State and Energy
+### Hopfield Network Notations
 We have patterns that are represented by the matrix:
 $$
 \boldsymbol{X} = \left(\vec{\mathbf {x}}_1, \dots, \vec{\mathbf {x}}_N \right)
@@ -77,17 +77,17 @@ $$
 
 ## New Update Rule
 $$
-\boldsymbol{\xi}^{\text{new}} = \mathcal{A} \left ( \boldsymbol{\xi} \right ) = \boldsymbol{X}p = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}} \right)  \tag {2}
+\boldsymbol{\xi}^{t + 1} = f \left ( \boldsymbol{\xi}^{t} \right ) = \boldsymbol{X}\vec{\mathbf {p}} = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}^{t}} \right)  \tag {2}
 $$
 
 where
 
 $$
-p = \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}} \right)
+\vec{\mathbf {p}} = \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}^{t}} \right)
 $$
 
 ## Theorem 1 Global Convergence
-The update rule (2) converges globally: for $\boldsymbol{\xi}^{t+ 1} = \mathcal{A} \left ( \boldsymbol{\xi}^{t} \right )$, the energy $\operatorname {E} \left ( \boldsymbol{\xi}^{t} \right ) \to \operatorname {E} \left ( \boldsymbol{\xi}^{\*} \right )$ for $t \to \infty $ and a fixed point $\boldsymbol{\xi}^{\*}$.
+The update rule (2) converges globally: For $\boldsymbol{\xi}^{t+ 1} = f \left ( \boldsymbol{\xi}^{t} \right )$, the energy $\operatorname {E} \left ( \boldsymbol{\xi}^{t} \right ) \to \operatorname {E} \left ( \boldsymbol{\xi}^{\text{*}} \right )$ for $t \to \infty $ and a fixed point $\boldsymbol{\xi}^{\text{*}}$.
 
 ### Proof
 The Jacobian of the $\operatorname{softmax}$ is positive semi-definite according to Lemma 3. The Jacobian of the $\operatorname{softmax}$ is Hessian of the $\operatorname{lse}$, therefore $\operatorname{lse}$ is a convex.
