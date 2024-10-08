@@ -84,7 +84,7 @@ p = \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}} \right
 $$
 
 ## Theorem 1 Global Convergence
-The update rule (2) converges globally: for $\boldsymbol{\xi}^{t+ 1} = \mathcal{A} \left ( \boldsymbol{\xi}^{t} \right )$, the energy $\operatorname {E} \left ( \boldsymbol{\xi}^{t} \right ) \to \operatorname {E} \left ( \boldsymbol{\xi}^{*} \right )$ for $t \to \infty $ and a fixed point $\boldsymbol{\xi}^*$.
+The update rule (2) converges globally: for $\boldsymbol{\xi}^{t+ 1} = \mathcal{A} \left ( \boldsymbol{\xi}^{t} \right )$, the energy $\operatorname {E} \left ( \boldsymbol{\xi}^{t} \right ) \to \operatorname {E} \left ( \boldsymbol{\xi}^{*} \right )$ for $t \to \infty $ and a fixed point $\boldsymbol{\xi}^{*}$.
 
 ### Proof
 The Jacobian of the $\operatorname{softmax}$ is positive semi-definite according to Lemma 3. The Jacobian of the $\operatorname{softmax}$ is Hessian of the $\operatorname{lse}$, therefore $\operatorname{lse}$ is a convex.
