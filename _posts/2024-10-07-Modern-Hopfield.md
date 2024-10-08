@@ -56,7 +56,7 @@ $$
 \vec{\mathbf {z}}^T \left(\operatorname{diag}\left(\vec{\mathbf {p}}\right) - \vec{\mathbf {p}}\vec{\mathbf {p}}^T \right) \vec{\mathbf {z}} = \sum_{i} p_i {z_i}^2 - \left({\sum_{i} p_i z_i}\right)^2 \geqslant 0
 $$
 
-### Patterns, Query and Energy
+### Patterns, Query / State and Energy
 We have patterns that are represented by the matrix:
 $$
 \boldsymbol{X} = \left(\vec{\mathbf {x}}_1, \dots, \vec{\mathbf {x}}_N \right)
