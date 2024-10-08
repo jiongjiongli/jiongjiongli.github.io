@@ -15,7 +15,7 @@ Then:
 
 $$
 \forall p \in \mathbb{R}, p \geqslant 1, \vec{\mathbf{x}}, \vec{\mathbf{y}} \in \mathbb{R}^n, \\
-\left \lVert \vec{\mathbf{x}} + \vec{\mathbf{y}} \right \rVert_p \leqslant \left \lVert \vec{\mathbf{x}} \right \rVert_p + \left \lVert \vec{\mathbf{y}} \right \rVert_p \tag{2}
+\left \lVert \vec{\mathbf{x}} + \vec{\mathbf{y}} \right \rVert_p \leqslant \left \lVert \vec{\mathbf{x}} \right \rVert_p + \left \lVert \vec{\mathbf{y}} \right \rVert_p \tag{1}
 $$
 
 
@@ -36,7 +36,7 @@ $$
 \forall \alpha \in \mathbb{R}, \left \lVert \alpha \vec{\mathbf{x}} \right \rVert_p = \left \lvert \alpha \right \rvert \left \lVert \vec{\mathbf{x}} \right \rVert_p
 $$
 
-So statement (2) is equivalent to:
+So statement (1) is equivalent to:
 
 $$
 \left \lVert
@@ -94,21 +94,21 @@ $$
 \sum_{i=1}^{n} \left( \lambda x_i + \left( 1 - \lambda \right) y_i \right)^p \leqslant \lambda \sum_{i=1}^{n} x_i^p + (1 - \lambda) \sum_{i=1}^{n} y_i^p = \lambda + (1 - \lambda) = 1
 $$
 
-Thus, statement (2) holds.
+Thus, statement (1) holds.
 
 ### Special Condition
 
-If $\left \lVert \vec{\mathbf{x}} \right \rVert_p = 0$, that is, $\vec{\mathbf{x}} = \vec{0}$, then statement (2) obviously holds.
+If $\left \lVert \vec{\mathbf{x}} \right \rVert_p = 0$, that is, $\vec{\mathbf{x}} = \vec{0}$, then statement (1) obviously holds.
 
 It also holds if $\left \lVert \vec{\mathbf{y}} \right \rVert_p = 0$.
 
-Now consider other special conditions. Statement (2) is equivalent to:
+Now consider other special conditions. statement (1) is equivalent to:
 
 $$
 \left( \sum_{i=1}^{n} \left \lvert x_i + y_i \right \rvert^p \right)^{1/p} \leqslant \left( \sum_{i=1}^{n} \left \lvert x_i \right \rvert^p \right)^{1/p} + \left( \sum_{i=1}^{n} \left \lvert y_i \right \rvert^p \right)^{1/p}
 $$
 
-If $p = 1$, it is trivial to prove statement (2) holds because:
+If $p = 1$, it is trivial to prove statement (1) holds because:
 
 $$
 \sum_{i=1}^{n} \left \lvert x_i + y_i \right \rvert \leqslant \sum_{i=1}^{n} \left \lvert x_i \right \rvert + \sum_{i=1}^{n} \left \lvert y_i \right \rvert
@@ -124,4 +124,4 @@ We have:
 $$
 \left( \sum_{i=1}^{n} \left \lvert x_i + y_i \right \rvert^p \right)^{1/p} \leqslant \left( \sum_{i=1}^{n} \left( \left \lvert x_i \right \rvert + \left \lvert y_i \right \rvert \right)^p \right)^{1/p} \leqslant \left( \sum_{i=1}^{n} \left \lvert x_i \right \rvert^p \right)^{1/p} + \left( \sum_{i=1}^{n} \left \lvert y_i \right \rvert^p \right)^{1/p}
 $$
-Thus, statement (2) holds.
+Thus, statement (1) holds.
