@@ -21,7 +21,9 @@ p_i = \left[\operatorname{softmax}\left(\beta \vec{\mathbf {x}} \right) \right]_
 $$
 
 where ${\vec{\mathbf {x}}}_i \in \mathbb {R}^{N}$.
+
 ### Log-Sum-Exp Function
+
 $$
 \operatorname{lse} \left ( \beta, \vec{\mathbf {x}} \right ) = \beta^{-1} \ln \left( {\sum_{k=1}^{N} \exp \left( {\beta x_k} \right)} \right)
 $$
@@ -74,7 +76,7 @@ Suppose $X$ and $Y$ are two topological spaces. A point-to-set map $\mathcal{A}$
 
 $$
 \begin{align*}
-    \left.
+    \left(
     \begin{array}{l}
         {\vec{\mathbf {x}}}_k \to {{\vec{\mathbf {x}}}_{0}} \text{ as } k \to \infty \\
         \vec{\mathbf {y}}_k \to {\vec{\mathbf {y}}_{0}} \text{ as } k \to \infty \\
