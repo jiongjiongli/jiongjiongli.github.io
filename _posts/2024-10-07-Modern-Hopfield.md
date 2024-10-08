@@ -12,7 +12,7 @@ $$
 \left[ N \right] = \left\{1, \cdots, N \right\}
 $$
 
-### Softmax
+### Softmax Function
 
 $$
 \vec{\mathbf {p}} = \operatorname{softmax}\left(\beta \vec{\mathbf {x}} \right) \\
