@@ -146,7 +146,7 @@ $$
 Then $\mathcal{A}$ is said to be strictly monotonic with respect to $l$.
 
 ### Global Convergence
-Let $X$ be a set and ${{\vec{\mathbf{x}}}_{0}} \in X$ a given point. Then an algorithm, $\mathcal{A}$,
+Let $X$ be a set and ${\vec{\mathbf {x}}}_{0} \in X$ a given point. Then an algorithm, $\mathcal{A}$,
 
 $$
 {\vec{\mathbf {x}}}_{t + 1} \in \mathcal{A} \left ({\vec{\mathbf {x}}}_t \right ), t = 0, 1, \cdots
