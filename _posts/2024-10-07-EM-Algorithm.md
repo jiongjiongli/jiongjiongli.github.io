@@ -70,11 +70,13 @@ $$
 2. Equality (1) holds if $\theta = \theta^{(t)}$.
 
 Let
+
 $$
 \theta^{(t+1)} = \underset{\theta}{\operatorname{argmax}} g\left(\theta, \theta^{(t)}\right)
 $$
 
 Then
+
 $$
 l\left(\theta^{(t+1)}\right) \geqslant g\left(\theta^{(t+1)}, \theta^{(t)}\right) = \max _\theta g\left(\theta, \theta^{(t)}\right) \geqslant g\left(\theta^{(t)}, \theta^{(t)}\right) = l\left(\theta^{(t)}\right)
 $$
@@ -82,6 +84,7 @@ $$
 ### Proof
 
 Let
+
 $$
 l\left(\theta\right) = \ln p\left(X \mid \theta\right)
 $$
