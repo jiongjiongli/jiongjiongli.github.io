@@ -91,6 +91,7 @@ g\left(\theta, \theta^{(t)}\right) = \sum_Z p\left(Z \mid X, \theta^{(t)}\right)
 $$
 
 Then using Jensen's inequality, we can show that:
+
 $$
 \begin{align*}
 l\left(\theta\right) &= \ln p\left(X \mid \theta\right) \\
