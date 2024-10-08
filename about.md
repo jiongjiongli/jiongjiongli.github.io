@@ -12,4 +12,4 @@ A place to include any other types of information that you'd like to include abo
 
 ### Contact me
 
-[jiongjiongai@outlook.com](mailto:jiongjiongai@outlook.com)
+[jiongjiongfly@gmail.com](mailto:jiongjiongfly@gmail.com)
