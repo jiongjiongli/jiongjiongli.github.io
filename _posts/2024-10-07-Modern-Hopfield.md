@@ -56,6 +56,7 @@ $$
 \vec{\mathbf {z}}^T \left(\operatorname{diag}\left(\vec{\mathbf {p}}\right) - \vec{\mathbf {p}}\vec{\mathbf {p}}^T \right) \vec{\mathbf {z}} = \sum_{i} p_i {z_i}^2 - \left({\sum_{i} p_i z_i}\right)^2 \geqslant 0
 $$
 
+### Patterns, Query and Energy
 We have patterns that are represented by the matrix:
 $$
 \boldsymbol{X} = \left(\vec{\mathbf {x}}_1, \dots, \vec{\mathbf {x}}_N \right)
@@ -70,7 +71,6 @@ $$
 
 The query or state of the Hopfield Network is $\boldsymbol{\xi} \in \mathbb {R}^{d}$.
 Define energy $\operatorname {E} \left ( \boldsymbol{\xi}  \right )$ for a continuous query or state $\boldsymbol{\xi}$:
-
 $$
 \operatorname {E} \left ( \boldsymbol{\xi}  \right ) = - \operatorname{lse} \left ( \beta, \boldsymbol{X}^T \boldsymbol{\xi}  \right ) + \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + \beta^{-1} \ln N + \dfrac {1} {2} M^2 \tag {1}
 $$
