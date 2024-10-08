@@ -144,7 +144,7 @@ Then $\mathcal{A}$ is said to be strictly monotonic with respect to $l$.
 
 ### Global Convergence
 
-Let $X$ be a set and ${\vec{\mathbf {x}}}_0 \in X$ a given point. Then an algorithm, $\mathcal{A}$, with initial point ${\vec{\mathbf {x}}}_0$ is a point-to-set map
+Let $X$ be a set and ${\vec{\mathbf {x}}}_{0} \in X$ a given point. Then an algorithm, $\mathcal{A}$, with initial point ${\vec{\mathbf {x}}}_0$ is a point-to-set map
 which generates a sequence $\left \{{\vec{\mathbf {x}}}_t \right \}_{t=0} ^{\infty}$ via the rule
 
 $$
@@ -247,7 +247,7 @@ Therefore $\mathcal{A}$ is monotonic with respect to $\operatorname {E}$.
 
 The point-set-map $\mathcal{A}$ is uniformly compact on $S$.
 
-According to Lemma 4, 
+According to Lemma 4,
 
 Let
 $$
