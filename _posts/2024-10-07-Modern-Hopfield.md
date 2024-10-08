@@ -77,11 +77,11 @@ $$
     \left.
     \begin{array}{l}
         {\vec{\mathbf {x}}}_k \to {{\vec{\mathbf {x}}}_{0}} \text{ as } k \to \infty \\
-        \vec{\mathbf {y}}_k \to \vec{\mathbf {y}}_0 \text{ as } k \to \infty \\
+        \vec{\mathbf {y}}_k \to {\vec{\mathbf {y}}_{0}} \text{ as } k \to \infty \\
         {\vec{\mathbf {x}}}_k \in X \\
         \vec{\mathbf {y}}_k \in \mathcal{A} \left({\vec{\mathbf {x}}}_k \right)
     \end{array}
-    \right\} \implies \vec{\mathbf {y}}_0 \in \mathcal{A} \left({{\vec{\mathbf {x}}}_{0}} \right)
+    \right\} \implies {\vec{\mathbf {y}}_{0}} \in \mathcal{A} \left({{\vec{\mathbf {x}}}_{0}} \right)
 \end{align*}
 $$
 
