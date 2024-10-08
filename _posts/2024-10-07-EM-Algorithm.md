@@ -99,7 +99,6 @@ l\left(\theta\right) &= \ln p\left(X \mid \theta\right) \\
 &= \ln \left( \sum_Z p\left(Z \mid X, \theta^{(t)}\right) \cdot \frac{p\left(X, Z \mid \theta\right)}{p\left(Z \mid X, \theta^{(t)}\right)} \right) \\
 & \geqslant \sum_Z p\left(Z \mid X, \theta^{(t)}\right) \ln \left( \frac{p\left(X, Z \mid \theta\right)}{p\left(Z \mid X, \theta^{(t)}\right)} \right) \\
 &= g\left(\theta, \theta^{(t)}\right) \\
-
 g\left(\theta^{(t)}, \theta^{(t)}\right)
 &= \sum_Z p\left(Z \mid X, \theta^{(t)}\right) \ln \left( \frac{p\left(X, Z \mid \theta^{(t)}\right)}{p\left(Z \mid X, \theta^{(t)}\right)} \right) \\
 &= \sum_Z p\left(Z \mid X, \theta^{(t)}\right) \ln p\left(X \mid \theta^{(t)}\right) \\
