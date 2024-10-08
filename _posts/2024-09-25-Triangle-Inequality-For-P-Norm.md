@@ -121,7 +121,9 @@ $$
 $$
 
 We have:
+
 $$
 \left( \sum_{i=1}^{n} \left \lvert x_i + y_i \right \rvert^p \right)^{1/p} \leqslant \left( \sum_{i=1}^{n} \left( \left \lvert x_i \right \rvert + \left \lvert y_i \right \rvert \right)^p \right)^{1/p} \leqslant \left( \sum_{i=1}^{n} \left \lvert x_i \right \rvert^p \right)^{1/p} + \left( \sum_{i=1}^{n} \left \lvert y_i \right \rvert^p \right)^{1/p}
 $$
+
 Thus, statement (1) holds.
