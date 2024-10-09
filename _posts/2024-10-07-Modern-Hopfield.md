@@ -76,7 +76,7 @@ Suppose $X$ and $Y$ are two topological spaces. A point-to-set map $\mathcal{A}$
 
 $$
 \begin{align*}
-    \left \{
+    \left .
     \begin{array}{l}
         {\vec{\mathbf {x}}}_k \to {\vec{\mathbf {x}}}_{0} \text{ as } k \to \infty \\
         \vec{\mathbf {y}}_k \to {\vec{\mathbf {y}}_{0}} \text{ as } k \to \infty \\
