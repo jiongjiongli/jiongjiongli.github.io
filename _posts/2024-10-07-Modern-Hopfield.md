@@ -148,12 +148,9 @@ Then $\mathcal{A}$ is said to be strictly monotonic with respect to $l$.
 ### Global Convergence
 Let $X$ be a set and $\text {} {\mathbf {x}_{0}} \in X$ a given point. Then an algorithm, $\mathcal{A}$, with initial point $\text {} {\mathbf {x}_{0}}$ is a point-to-set map which generates a sequence ${\left \lbrace \text {} {\mathbf {x}_{t}} \right \rbrace} _{t=0} ^{\infty}$ via the rule
 
-
 Let $X$ be a set and $\text {} {\mathbf {x}_{0}} \in X$ a given point. Then an algorithm, $\mathcal{A}$, with initial point $\text {} {\mathbf {x}_{0}}$ is a point-to-set map which generates a sequence ${\lbrace \text {} {\mathbf {x}_{t}} \rbrace} _{t=0} ^{\infty}$ via the rule
 
-
 Let $X$ be a set and $\text {} {\mathbf {x}_{0}} \in X$ a given point. Then an algorithm, $\mathcal{A}$, with initial point $\text {} {\mathbf {x}_{0}}$ is a point-to-set map which generates a sequence ${\text {} {\mathbf {x}_{t}}} _{t=0} ^{\infty}$ via the rule
-
 
 Let $X$ be a set and $\text {} {\mathbf {x}_{0}} \in X$ a given point. Then an algorithm, $\mathcal{A}$,
 
