@@ -15,47 +15,47 @@ $$
 ### Softmax Function
 
 $$
-\vec{\mathbf {p}} = \operatorname{softmax}\left(\beta \vec{\mathbf {x}} \right) \\
+\text {}{\mathbf {p}} = \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) \\
 
-p_i = \left[\operatorname{softmax}\left(\beta \vec{\mathbf {x}} \right) \right]_i = \dfrac {\exp \left( {\beta x_i} \right)} {\sum_{k=1}^{N} \exp \left( {\beta x_k} \right)}
+p_i = \left[\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) \right]_i = \dfrac {\exp \left( {\beta x_i} \right)} {\sum_{k=1}^{N} \exp \left( {\beta x_k} \right)}
 $$
 
-where $\overrightarrow {\mathbf {x}_{i}} \in \mathbb {R}^{N}$.
+where $\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{N}$.
 
 ### Log-Sum-Exp Function
 
 $$
-\operatorname{lse} \left ( \beta, \vec{\mathbf {x}} \right ) = \beta^{-1} \ln \left( {\sum_{k=1}^{N} \exp \left( {\beta x_k} \right)} \right)
+\operatorname{lse} \left ( \beta, \text {}{\mathbf {x}} \right ) = \beta^{-1} \ln \left( {\sum_{k=1}^{N} \exp \left( {\beta x_k} \right)} \right)
 $$
 
-where $\overrightarrow {\mathbf {x}_{i}} \in \mathbb {R}^{N}$.
+where $\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{N}$.
 
 ## Lemma 1
 $$
-\nabla _{\vec{\mathbf {x}}} \operatorname{lse} \left ( \beta, \vec{\mathbf {x}} \right ) = \operatorname{softmax}\left(\beta \vec{\mathbf {x}} \right)
+\nabla _{\text {}{\mathbf {x}}} \operatorname{lse} \left ( \beta, \text {}{\mathbf {x}} \right ) = \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right)
 $$
 
 ## Lemma 2
-The Jacobian $J_s$ of $\vec{\mathbf {p}}=\operatorname{softmax}\left(\beta \vec{\mathbf {x}} \right) $ is
+The Jacobian $J_s$ of $\text {}{\mathbf {p}}=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $ is
 
 $$
-J_s = \dfrac {\partial \operatorname{softmax}\left(\beta \vec{\mathbf {x}} \right)} {\partial \vec{\mathbf {x}}} = \beta \left(\operatorname{diag}\left(\vec{\mathbf {p}}\right) - \vec{\mathbf {p}}\vec{\mathbf {p}}^T \right)
+J_s = \dfrac {\partial \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right)} {\partial \text {}{\mathbf {x}}} = \beta \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right)
 $$
 
-The Jacobian $J$ of $\vec{\mathbf {p}}=\operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $ is
+The Jacobian $J$ of $\text {}{\mathbf {p}}=\operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $ is
 
 $$
-J = \dfrac {\partial \operatorname{softmax}\left(\beta \boldsymbol{X}^T\boldsymbol{\xi} \right)} {\partial \vec{\mathbf {x}}} = \beta \boldsymbol{X} \left(\operatorname{diag}\left(\vec{\mathbf {p}}\right) - \vec{\mathbf {p}}\vec{\mathbf {p}}^T \right) \boldsymbol{X}^T = \boldsymbol{X} J_s \boldsymbol{X}^T
+J = \dfrac {\partial \operatorname{softmax}\left(\beta \boldsymbol{X}^T\boldsymbol{\xi} \right)} {\partial \text {}{\mathbf {x}}} = \beta \boldsymbol{X} \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \boldsymbol{X}^T = \boldsymbol{X} J_s \boldsymbol{X}^T
 $$
 
 ## Lemma 3
-The Jacobian $J_s$ of $\vec{\mathbf {p}}=\operatorname{softmax}\left(\beta \vec{\mathbf {x}} \right) $ is symmetric and positive semi-definite.
+The Jacobian $J_s$ of $\text {}{\mathbf {p}}=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $ is symmetric and positive semi-definite.
 
 ### Proof
-For any arbitrary $\vec{\mathbf {z}}$, we have
+For any arbitrary $\text {}{\mathbf {z}}$, we have
 
 $$
-\vec{\mathbf {z}}^T \left(\operatorname{diag}\left(\vec{\mathbf {p}}\right) - \vec{\mathbf {p}}\vec{\mathbf {p}}^T \right) \vec{\mathbf {z}} = \sum_{i} p_i {z_i}^2 - \left({\sum_{i} p_i z_i}\right)^2 \geqslant 0
+\text {}{\mathbf {z}}^T \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \text {}{\mathbf {z}} = \sum_{i} p_i {z_i}^2 - \left({\sum_{i} p_i z_i}\right)^2 \geqslant 0
 $$
 
 ## Definition
@@ -78,12 +78,12 @@ $$
 \begin{align*}
     \left .
     \begin{array}{l}
-        \overrightarrow {\mathbf {x}_{k}} \to \overrightarrow {\mathbf {x}_{0}} \text{ as } k \to \infty \\
-        \overrightarrow {\mathbf {y}_{k}} \to \overrightarrow {\mathbf {y}_{0}} \text{ as } k \to \infty \\
-        \overrightarrow {\mathbf {x}_{k}} \in X \\
-        \overrightarrow {\mathbf {y}_{k}} \in \mathcal{A} \left(\overrightarrow {\mathbf {x}_{k}} \right)
+        \text {} {\mathbf {x}_{k}} \to \text {} {\mathbf {x}_{0}} \text{ as } k \to \infty \\
+        \text {} {\mathbf {y}_{k}} \to \text {} {\mathbf {y}_{0}} \text{ as } k \to \infty \\
+        \text {} {\mathbf {x}_{k}} \in X \\
+        \text {} {\mathbf {y}_{k}} \in \mathcal{A} \left(\text {} {\mathbf {x}_{k}} \right)
     \end{array}
-    \right\} \implies \overrightarrow {\mathbf {y}_{0}} \in \mathcal{A} \left(\overrightarrow {\mathbf {x}_{0}} \right)
+    \right\} \implies \text {} {\mathbf {y}_{0}} \in \mathcal{A} \left(\text {} {\mathbf {x}_{0}} \right)
 \end{align*}
 $$
 
@@ -97,24 +97,24 @@ $$
 \mathcal{A}: X \to \mathscr{P}(X)
 $$
 
-is any point $\vec{\mathbf {x}} \in X$ for which
+is any point $\text {}{\mathbf {x}} \in X$ for which
 
 $$
-\mathcal{A} \left( \vec{\mathbf {x}} \right) = \left \{ \vec{\mathbf {x}} \right \}
+\mathcal{A} \left( \text {}{\mathbf {x}} \right) = \left \{ \text {}{\mathbf {x}} \right \}
 $$
 
-A generalized fixed point of $\mathcal{A}$ is any point $\vec{\mathbf {x}} \in X$ for which
+A generalized fixed point of $\mathcal{A}$ is any point $\text {}{\mathbf {x}} \in X$ for which
 
 $$
-\vec{\mathbf {x}} \in \mathcal{A} \left( \vec{\mathbf {x}} \right)
+\text {}{\mathbf {x}} \in \mathcal{A} \left( \text {}{\mathbf {x}} \right)
 $$
 
 ### Uniformly Compact
 
-$\mathcal{A}$ is said to be uniformly compact on $X$ if there exists a compact set $H$ independent of $\vec{\mathbf {x}}$ such that:
+$\mathcal{A}$ is said to be uniformly compact on $X$ if there exists a compact set $H$ independent of $\text {}{\mathbf {x}}$ such that:
 
 $$
-\forall \vec{\mathbf {x}} \in X, \mathcal{A} \left( \vec{\mathbf {x}} \right) \subset H
+\forall \text {}{\mathbf {x}} \in X, \mathcal{A} \left( \text {}{\mathbf {x}} \right) \subset H
 $$
 
 ### Monotonic
@@ -134,38 +134,38 @@ $$
 is said to be monotonic with respect to $l$ if
 
 $$
-\forall \vec{\mathbf {x}} \in X, \forall \vec{\mathbf {y}} \in \mathcal{A} \left( \vec{\mathbf {x}} \right), l \left( \vec{\mathbf {y}} \right) \leqslant l \left( \vec{\mathbf {x}} \right)
+\forall \text {}{\mathbf {x}} \in X, \forall \text {}{\mathbf {y}} \in \mathcal{A} \left( \text {}{\mathbf {x}} \right), l \left( \text {}{\mathbf {y}} \right) \leqslant l \left( \text {}{\mathbf {x}} \right)
 $$
 
 If, in addition,
 
 $$
-\forall \vec{\mathbf {x}} \in X, \forall \vec{\mathbf {y}} \in \mathcal{A} \left( \vec{\mathbf {x}} \right), l \left( \vec{\mathbf {y}} \right) = l \left( \vec{\mathbf {x}} \right) \implies \vec{\mathbf {y}} = \vec{\mathbf {x}}
+\forall \text {}{\mathbf {x}} \in X, \forall \text {}{\mathbf {y}} \in \mathcal{A} \left( \text {}{\mathbf {x}} \right), l \left( \text {}{\mathbf {y}} \right) = l \left( \text {}{\mathbf {x}} \right) \implies \text {}{\mathbf {y}} = \text {}{\mathbf {x}}
 $$
 
 Then $\mathcal{A}$ is said to be strictly monotonic with respect to $l$.
 
 ### Global Convergence
-Let $X$ be a set and $\overrightarrow {\mathbf {x}_{0}} \in X$ a given point. Then an algorithm, $\mathcal{A}$, with initial point $\overrightarrow {\mathbf {x}_{0}}$ is a point-to-set map which generates a sequence ${\left \lbrace \vec {\mathbf {x}_{t}} \right \rbrace} _{t=0} ^{\infty}$ via the rule
+Let $X$ be a set and $\text {} {\mathbf {x}_{0}} \in X$ a given point. Then an algorithm, $\mathcal{A}$, with initial point $\text {} {\mathbf {x}_{0}}$ is a point-to-set map which generates a sequence ${\left \lbrace \text {} {\mathbf {x}_{t}} \right \rbrace} _{t=0} ^{\infty}$ via the rule
 
 $$
-\overrightarrow{\mathbf {x}_{t + 1}} \in \mathcal{A} \left (\overrightarrow {\mathbf {x}_{t}} \right ), t = 0, 1, \cdots
+\text {}{\mathbf {x}_{t + 1}} \in \mathcal{A} \left (\text {} {\mathbf {x}_{t}} \right ), t = 0, 1, \cdots
 $$
 
-$\mathcal{A}$ is said to be globally convergent if: For any chosen initial point $\overrightarrow {\mathbf {x}_{0}}$, the sequence ${\left \lbrace \vec {\mathbf {x}_{t}} \right \rbrace} _{t=0} ^{\infty}$ generated by $\overrightarrow{\mathbf {x}_{t + 1}} \in \mathcal{A} \left (\overrightarrow {\mathbf {x}_{t}} \right )$ (or a subsequence) converges to a point for which a necessary condition of optimality holds.
+$\mathcal{A}$ is said to be globally convergent if: For any chosen initial point $\text {} {\mathbf {x}_{0}}$, the sequence ${\left \lbrace \text {} {\mathbf {x}_{t}} \right \rbrace} _{t=0} ^{\infty}$ generated by $\text {}{\mathbf {x}_{t + 1}} \in \mathcal{A} \left (\text {} {\mathbf {x}_{t}} \right )$ (or a subsequence) converges to a point for which a necessary condition of optimality holds.
 
 ## Modern Hopfield Network
 
 We have patterns that are represented by the matrix:
 $$
-\boldsymbol{X} = \left(\overrightarrow {\mathbf {x}_{1}}, \dots, \overrightarrow{\mathbf {x}_{N}} \right)
+\boldsymbol{X} = \left(\text {} {\mathbf {x}_{1}}, \dots, \text {}{\mathbf {x}_{N}} \right)
 $$
 
-where $\overrightarrow {\mathbf {x}_{i}} \in \mathbb {R}^{d}$.
+where $\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{d}$.
 The largest norm of a pattern is:
 
 $$
-M = \max_{i \in \left[ N \right]} \left \lVert \overrightarrow {\mathbf {x}_{i}} \right \rVert _2
+M = \max_{i \in \left[ N \right]} \left \lVert \text {} {\mathbf {x}_{i}} \right \rVert _2
 $$
 
 The query or state of the Hopfield Network is $\boldsymbol{\xi} \in \mathbb {R}^{d}$.
@@ -176,13 +176,13 @@ $$
 
 ## New Update Rule
 $$
-\boldsymbol{\xi}^{t + 1} = \mathcal{F} \left ( \boldsymbol{\xi}^{t} \right ) = \boldsymbol{X}\vec{\mathbf {p}} = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}^{t}} \right)  \tag {2}
+\boldsymbol{\xi}^{t + 1} = \mathcal{F} \left ( \boldsymbol{\xi}^{t} \right ) = \boldsymbol{X}\text {}{\mathbf {p}} = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}^{t}} \right)  \tag {2}
 $$
 
 where
 
 $$
-\vec{\mathbf {p}} = \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}^{t}} \right)
+\text {}{\mathbf {p}} = \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}^{t}} \right)
 $$
 
 ## Theorem 1 Global Convergence
@@ -194,9 +194,9 @@ The update rule (2) converges globally: For $\boldsymbol{\xi}^{t+ 1} = \mathcal{
 
 $$
 {\left \lVert {\boldsymbol{\xi}^{t + 1}} \right \rVert} _2
-= {\left \lVert {\boldsymbol{X}\vec{\mathbf {p}}} \right \rVert} _2
-= {\left \lVert {\sum_{i=1}^{N} p_i \overrightarrow {\mathbf {x}_{i}}} \right \rVert} _2
-\leqslant {\sum_{i=1}^{N} p_i \left \lVert \overrightarrow {\mathbf {x}_{i}} \right \rVert} _2
+= {\left \lVert {\boldsymbol{X}\text {}{\mathbf {p}}} \right \rVert} _2
+= {\left \lVert {\sum_{i=1}^{N} p_i \text {} {\mathbf {x}_{i}}} \right \rVert} _2
+\leqslant {\sum_{i=1}^{N} p_i \left \lVert \text {} {\mathbf {x}_{i}} \right \rVert} _2
 \leqslant \sum_{i=1}^{N} p_i M
 = M
 $$
@@ -204,7 +204,7 @@ $$
 Hence $\boldsymbol{\xi}^{t + 1}$ is in the sphere
 
 $$
-S = \left \{\vec{\mathbf {x}} | \left \lVert {\vec{\mathbf {x}}} \right \rVert _2 \leqslant M \right \}
+S = \left \{\text {}{\mathbf {x}} | \left \lVert {\text {}{\mathbf {x}}} \right \rVert _2 \leqslant M \right \}
 $$
 
 which is a convex and compact set.
@@ -287,7 +287,7 @@ The Hessian is strict positive definite everywhere, therefore $g(\boldsymbol{\xi
 Let
 
 $$
-\dfrac {\partial g(\boldsymbol{\xi}, \boldsymbol{\xi}^t)} {\partial {\boldsymbol{\xi}}} = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}^{t}  \right ) = \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}^t \right) = \vec {\mathbf {0}}
+\dfrac {\partial g(\boldsymbol{\xi}, \boldsymbol{\xi}^t)} {\partial {\boldsymbol{\xi}}} = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}^{t}  \right ) = \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}^t \right) = \text {} {\mathbf {0}}
 $$
 
 The minimum is:
