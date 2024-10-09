@@ -20,7 +20,7 @@ $$
 p_i = \left[\operatorname{softmax}\left(\beta \vec{\mathbf {x}} \right) \right]_i = \dfrac {\exp \left( {\beta x_i} \right)} {\sum_{k=1}^{N} \exp \left( {\beta x_k} \right)}
 $$
 
-where ${\vec{\mathbf {x}}}_i \in \mathbb {R}^{N}$.
+where $\overrightarrow {\mathbf {x}_{i}} \in \mathbb {R}^{N}$.
 
 ### Log-Sum-Exp Function
 
@@ -28,7 +28,7 @@ $$
 \operatorname{lse} \left ( \beta, \vec{\mathbf {x}} \right ) = \beta^{-1} \ln \left( {\sum_{k=1}^{N} \exp \left( {\beta x_k} \right)} \right)
 $$
 
-where ${\vec{\mathbf {x}}}_i \in \mathbb {R}^{N}$.
+where $\overrightarrow {\mathbf {x}_{i}} \in \mathbb {R}^{N}$.
 
 ## Lemma 1
 $$
@@ -78,12 +78,12 @@ $$
 \begin{align*}
     \left .
     \begin{array}{l}
-        {\vec{\mathbf {x}}}_k \to \overrightarrow {\mathbf {x}_{0}} \text{ as } k \to \infty \\
-        \vec{\mathbf {y}}_k \to {\vec{\mathbf {y}}_{0}} \text{ as } k \to \infty \\
-        {\vec{\mathbf {x}}}_k \in X \\
-        \vec{\mathbf {y}}_k \in \mathcal{A} \left({\vec{\mathbf {x}}}_k \right)
+        \overrightarrow {\mathbf {x}_{k}} \to \overrightarrow {\mathbf {x}_{0}} \text{ as } k \to \infty \\
+        \overrightarrow {\mathbf {y}_{k}} \to \overrightarrow {\mathbf {y}_{0}} \text{ as } k \to \infty \\
+        \overrightarrow {\mathbf {x}_{k}} \in X \\
+        \overrightarrow {\mathbf {y}_{k}} \in \mathcal{A} \left(\overrightarrow {\mathbf {x}_{k}} \right)
     \end{array}
-    \right\} \implies {\vec{\mathbf {y}}_{0}} \in \mathcal{A} \left(\overrightarrow {\mathbf {x}_{0}} \right)
+    \right\} \implies \overrightarrow {\mathbf {y}_{0}} \in \mathcal{A} \left(\overrightarrow {\mathbf {x}_{0}} \right)
 \end{align*}
 $$
 
@@ -158,14 +158,14 @@ $\mathcal{A}$ is said to be globally convergent if: For any chosen initial point
 
 We have patterns that are represented by the matrix:
 $$
-\boldsymbol{X} = \left({\vec{\mathbf {x}}}_1, \dots, {\vec{\mathbf {x}}}_N \right)
+\boldsymbol{X} = \left(\overrightarrow {\mathbf {x}_{1}}, \dots, \overrightarrow{\mathbf {x}_{N}} \right)
 $$
 
-where ${\vec{\mathbf {x}}}_i \in \mathbb {R}^{d}$.
+where $\overrightarrow {\mathbf {x}_{i}} \in \mathbb {R}^{d}$.
 The largest norm of a pattern is:
 
 $$
-M = \max_{i \in \left[ N \right]} \left \lVert {\vec{\mathbf {x}}}_i \right \rVert _2
+M = \max_{i \in \left[ N \right]} \left \lVert \overrightarrow {\mathbf {x}_{i}} \right \rVert _2
 $$
 
 The query or state of the Hopfield Network is $\boldsymbol{\xi} \in \mathbb {R}^{d}$.
@@ -195,8 +195,8 @@ The update rule (2) converges globally: For $\boldsymbol{\xi}^{t+ 1} = \mathcal{
 $$
 {\left \lVert {\boldsymbol{\xi}^{t + 1}} \right \rVert} _2
 = {\left \lVert {\boldsymbol{X}\vec{\mathbf {p}}} \right \rVert} _2
-= {\left \lVert {\sum_{i=1}^{N} p_i {\vec{\mathbf {x}}}_i} \right \rVert} _2
-\leqslant {\sum_{i=1}^{N} p_i \left \lVert {\vec{\mathbf {x}}}_i \right \rVert} _2
+= {\left \lVert {\sum_{i=1}^{N} p_i \overrightarrow {\mathbf {x}_{i}}} \right \rVert} _2
+\leqslant {\sum_{i=1}^{N} p_i \left \lVert \overrightarrow {\mathbf {x}_{i}} \right \rVert} _2
 \leqslant \sum_{i=1}^{N} p_i M
 = M
 $$
