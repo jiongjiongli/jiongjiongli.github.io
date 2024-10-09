@@ -207,7 +207,7 @@ $$
 
 ## Theorem 1 Global Convergence
 
-The update rule (2) converges globally: For $\boldsymbol{\xi}^{t+ 1} = \mathcal{F} \left ( \boldsymbol{\xi}^{t} \right )$, the energy $\operatorname {E} \left ( \boldsymbol{\xi}^{t} \right ) \to \operatorname {E} \left ( \boldsymbol{\xi}^{\text{*}} \right )$ for $t \to \infty $ and one accumulation point $\boldsymbol{\xi}^{\text{*}}$.
+The update rule (2) converges globally: For $\boldsymbol{\xi}^{t+ 1} = \mathcal{F} \left ( \boldsymbol{\xi}^{t} \right )$, the energy $\operatorname {E} \left ( \boldsymbol{\xi}^{t} \right ) \to \operatorname {E} \left ( \boldsymbol{\xi}^{\ast} \right )$ for $t \to \infty $ and one accumulation point $\boldsymbol{\xi}^{\ast}$.
 
 
 ### Proof
