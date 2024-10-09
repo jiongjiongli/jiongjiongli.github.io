@@ -4,15 +4,13 @@ title: Modern Hopfield Network
 ---
 
 ## Notations
-### Common Notations
+1. The $$p$$-norm of a vector is denoted: $$\left \lVert {\cdot} \right \rVert _p\text{,} 1 \leqslant p$$
 
-$$
-\text{The }p\text{-norm of a vector is denoted} \left \lVert {\cdot} \right \rVert _p\text{,} 1 \leqslant p\text{.} \\
-\beta > 0, \beta \in \mathbb {R} \\
-\left[ N \right] = \left\{1, \cdots, N \right\}
-$$
+2. Let $$\beta > 0, \beta \in \mathbb {R}$$
 
-### Softmax Function
+3. Let $$\left[ N \right] = \left\{1, \cdots, N \right\}$$
+
+## Softmax Function
 
 $$
 \text {}{\mathbf {p}} = \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) \\
@@ -22,7 +20,7 @@ $$
 
 where $\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{N}$.
 
-### Log-Sum-Exp Function
+## Log-Sum-Exp Function
 
 $$
 \operatorname{lse} \left ( \beta, \text {}{\mathbf {x}} \right ) = \beta^{-1} \ln \left( {\sum_{k=1}^{N} \exp \left( {\beta x_k} \right)} \right)
@@ -58,7 +56,7 @@ $$
 \text {}{\mathbf {z}}^T \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \text {}{\mathbf {z}} = \sum_{i} p_i {z_i}^2 - \left({\sum_{i} p_i z_i}\right)^2 \geqslant 0
 $$
 
-## Definition
+## Definitions
 
 ### Point-to-set Map
 
