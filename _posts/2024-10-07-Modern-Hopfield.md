@@ -272,7 +272,7 @@ $$
 \operatorname {E} \left ( \boldsymbol{\xi}  \right ) &= \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}  \right ) \\
 \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) &= \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + \beta^{-1} \ln N + \dfrac {1} {2} M^2 = \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + C_1 \\
 \operatorname {E_2} \left ( \boldsymbol{\xi}  \right ) &= \operatorname{lse} \left ( \beta, \boldsymbol{X}^T \boldsymbol{\xi}  \right )
-\end{align*}
+\end{align*} \tag {Theo1.2}
 $$
 
 where $C_1$ does not depend on $\boldsymbol{\xi}$.
@@ -292,7 +292,7 @@ $$
 The resulting update rule is:
 
 $$
-\boldsymbol{\xi}_{t + 1} = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}^t \right)
+\boldsymbol{\xi}_{t + 1} = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right)
 $$
 
 Let
@@ -313,16 +313,16 @@ where $$\boldsymbol{\xi}^{\ast} \in S$$ is a accumulation point.
 Continuity of $\operatorname {E}$ provides
 
 $$
-\operatorname {E}\left(\boldsymbol{\xi}_{t_k}\right) \to \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right), \text{ as } k \to \infty \tag {Theo1.2}
+\operatorname {E}\left(\boldsymbol{\xi}_{t_k}\right) \to \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right), \text{ as } k \to \infty \tag {Theo1.3}
 $$
 
 $\mathcal{A}$ is monotonic with respect to $\operatorname {E}$. So that
 
 $$
-\forall t \geqslant 0, \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \geqslant \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right)\tag {Theo1.3}
+\forall t \geqslant 0, \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \geqslant \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right)\tag {Theo1.4}
 $$
 
-Using (Theo1.2) and the definition of limit given $$\varepsilon \ge 0$$, there is a $$K_{\varepsilon}$$ such that
+Using (Theo1.3) and the definition of limit given $$\varepsilon \ge 0$$, there is a $$K_{\varepsilon}$$ such that
 
 $$
 \operatorname {E}\left(\boldsymbol{\xi}_{t_{K_{\varepsilon}}}\right) < \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) + \varepsilon
@@ -346,7 +346,7 @@ $$
 \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \to \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) = \operatorname {E}^{\ast}, \text{ as } t \to \infty
 $$
 
-According to (Theo1.3), $$\operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) $$ is the infimum of the set $${\left \lbrace \operatorname {E} \left ( \text {} {\boldsymbol{\xi}_t} \right ) \right \rbrace} _{t=0} ^{\infty}$$.
+According to (Theo1.4), $$\operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) $$ is the infimum of the set $${\left \lbrace \operatorname {E} \left ( \text {} {\boldsymbol{\xi}_t} \right ) \right \rbrace} _{t=0} ^{\infty}$$.
 
 $$
 \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) = {\inf {\left \lbrace \operatorname {E} \left ( \text {} {\boldsymbol{\xi}_t} \right ) \right \rbrace} _{t=0} ^{\infty}}
@@ -372,9 +372,10 @@ And either $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0}
 Let
 
 $$
-g(\boldsymbol{\xi}, \boldsymbol{\xi}^t) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right )
+g(\boldsymbol{\xi}, \boldsymbol{\xi}_t) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right ) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right )
 $$
 
+where $$\operatorname {E_1}, \operatorname {E_2}$$ are defined by (Theo1.2), and $$C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ does not depend on $\boldsymbol{\xi}$.
 Since $\operatorname {E_2}$ is convex, the first order characterization of convexity holds:
 
 $$
@@ -387,44 +388,42 @@ $$
 \begin{align*}
 \operatorname {E} \left ( \boldsymbol{\xi}  \right ) &= \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}  \right ) \\
 & \leqslant \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right ) \\
-&= g(\boldsymbol{\xi}, \boldsymbol{\xi}^t) \\
-&= \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2
+&= g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)
 \end{align*}
 $$
 
-where $C_2$ does not depend on $\boldsymbol{\xi}$.
 Because
 
 $$
 \begin{align*}
-\dfrac {\partial g(\boldsymbol{\xi}, \boldsymbol{\xi}^t)} {\partial {\boldsymbol{\xi}}}  &= \nabla _{\boldsymbol{\xi}} \operatorname {E_1} \left ( \boldsymbol{\xi} \right ) - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \\
-\dfrac {\partial ^2 g(\boldsymbol{\xi}, \boldsymbol{\xi}^t)} {\partial {\boldsymbol{\xi} ^2}} &= I
+\dfrac {\partial g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)} {\partial {\boldsymbol{\xi}}}  &= \nabla _{\boldsymbol{\xi}} \operatorname {E_1} \left ( \boldsymbol{\xi} \right ) - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \\
+\dfrac {\partial ^2 g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)} {\partial {\boldsymbol{\xi} ^2}} &= I
 \end{align*}
 $$
 
-The Hessian is strict positive definite everywhere, therefore $g(\boldsymbol{\xi}, \boldsymbol{\xi}^t)$ is strict convex (if the domain is convex) and there exist only one minimum, which is the global minimum.
+The Hessian is strict positive definite everywhere, therefore $g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)$ is strict convex (if the domain is convex) and there exist only one minimum, which is the global minimum.
 Let
 
 $$
-\dfrac {\partial g(\boldsymbol{\xi}, \boldsymbol{\xi}^t)} {\partial {\boldsymbol{\xi}}} = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}^t \right) = \text {} {\mathbf {0}}
+\dfrac {\partial g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)} {\partial {\boldsymbol{\xi}}} = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) = \text {} {\mathbf {0}}
 $$
 
 The minimum is:
 
 $$
-\boldsymbol{\xi}_{t + 1} = \underset{\boldsymbol{\xi}} {\operatorname{argmin}} g(\boldsymbol{\xi}, \boldsymbol{\xi}^t) = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}^t \right)
+\boldsymbol{\xi}_{t + 1} = \underset{\boldsymbol{\xi}} {\operatorname{argmin}} g(\boldsymbol{\xi}, \boldsymbol{\xi}_t) = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right)
 $$
 
 Hence
 
 $$
-\text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}^t, g(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}^t) \lt g(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}^t)
+\text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, g(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t) \lt g(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t)
 $$
 
 Therefore
 
 $$
-\text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}^t, \operatorname {E} \left ( \boldsymbol{\xi}_{t + 1} \right ) \leqslant g(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}^t) \lt g(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}^t) = \operatorname {E} \left ( \boldsymbol{\xi}^t  \right )
+\text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, \operatorname {E} \left ( \boldsymbol{\xi}_{t + 1} \right ) \leqslant g(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t) \lt g(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t) = \operatorname {E} \left ( \boldsymbol{\xi}_t  \right )
 $$
 
 Let
@@ -436,7 +435,7 @@ $$
 Thus
 
 $$
-\forall \boldsymbol{\xi}_{t + 1} \in \mathcal{A} \left ( \boldsymbol{\xi}^t \right ), \text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}^t, \operatorname {E} \left ( \boldsymbol{\xi}_{t + 1} \right ) \lt \operatorname {E} \left ( \boldsymbol{\xi}^t \right )
+\forall \boldsymbol{\xi}_{t + 1} \in \mathcal{A} \left ( \boldsymbol{\xi}_t \right ), \text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, \operatorname {E} \left ( \boldsymbol{\xi}_{t + 1} \right ) \lt \operatorname {E} \left ( \boldsymbol{\xi}_t \right )
 $$
 
 Therefore $\mathcal{A}$ is strictly monotonic with respect to $\operatorname {E}$.
