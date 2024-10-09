@@ -220,6 +220,18 @@ $$
 = M
 $$
 
+$$
+{\left \lVert {\boldsymbol{\xi}^{t + 1}} \right \rVert} _2
+= {\left \lVert {\boldsymbol{X}\vec{\mathbf {p}}} \right \rVert} _2
+$$
+
+$$
+= {\left \lVert {\sum_{i=1}^{N} p_i {\vec{\mathbf {x}}}_i} \right \rVert} _2
+\leqslant {\sum_{i=1}^{N} p_i \left \lVert {{\vec{\mathbf {x}}}_i} \right \rVert} _2
+\leqslant \sum_{i=1}^{N} p_i M
+= M
+$$
+
 Hence $\boldsymbol{\xi}^{t + 1}$ is in the sphere
 
 $$
