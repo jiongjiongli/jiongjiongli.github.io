@@ -13,9 +13,10 @@ title: Modern Hopfield Network
 ## Softmax Function
 
 $$
-\text {}{\mathbf {p}} = \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) \\
-
-p_i = \left[\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) \right]_i = \dfrac {\exp \left( {\beta x_i} \right)} {\sum_{k=1}^{N} \exp \left( {\beta x_k} \right)}
+\begin{align*}
+&\text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right) = \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) \\
+&p_i = \left[\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) \right]_i = \dfrac {\exp \left( {\beta x_i} \right)} {\sum_{k=1}^{N} \exp \left( {\beta x_k} \right)}
+\end{align*}
 $$
 
 where $\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{N}$.
@@ -33,27 +34,41 @@ $$
 \nabla _{\text {}{\mathbf {x}}} \operatorname{lse} \left ( \beta, \text {}{\mathbf {x}} \right ) = \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right)
 $$
 
+where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
 ## Lemma 2
-The Jacobian $J_s$ of $\text {}{\mathbf {p}}=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $ is
+The Jacobian $J_s$ of $\text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $ is
 
 $$
 J_s = \dfrac {\partial \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right)} {\partial \text {}{\mathbf {x}}} = \beta \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right)
 $$
 
-The Jacobian $J$ of $\text {}{\mathbf {p}}=\operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $ is
+where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
+The Jacobian $J$ of $\text {}{\mathbf {p}} \left(\boldsymbol{\xi} \right)=\operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $ is
 
 $$
-J = \dfrac {\partial \operatorname{softmax}\left(\beta \boldsymbol{X}^T\boldsymbol{\xi} \right)} {\partial \text {}{\mathbf {x}}} = \beta \boldsymbol{X} \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \boldsymbol{X}^T = \boldsymbol{X} J_s \boldsymbol{X}^T
+J = \dfrac {\partial \operatorname{softmax}\left(\beta \boldsymbol{X}^T\boldsymbol{\xi} \right)} {\partial \text {}{\boldsymbol{\xi}}} = \beta \boldsymbol{X} \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \boldsymbol{X}^T = \boldsymbol{X} J_s \boldsymbol{X}^T
 $$
 
+where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
 ## Lemma 3
-The Jacobian $J_s$ of $\text {}{\mathbf {p}}=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $ is symmetric and positive semi-definite.
-
+The Jacobian $J_s$ of $\text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $ is symmetric and positive semi-definite where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
+The Jacobian $J$ of $\text {}{\mathbf {p}} \left(\boldsymbol{\xi} \right)=\operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $ is symmetric and positive semi-definite where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
 ### Proof
-For any arbitrary $\text {}{\mathbf {z}}$, we have
+According to Lemma 2, obviously they are symmetric.
+For any arbitrary $\text {}{\mathbf {x}} \in \mathbb {R}^{N}$, we have
 
 $$
-\text {}{\mathbf {z}}^T \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \text {}{\mathbf {z}} = \sum_{i} p_i {z_i}^2 - \left({\sum_{i} p_i z_i}\right)^2 \geqslant 0
+\text {}{\mathbf {x}}^T J_s \text {}{\mathbf {x}} = \beta \text {}{\mathbf {x}}^T \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \text {}{\mathbf {x}}
+= \beta \left[ \sum_{i} p_i {x_i}^2 - \left({\sum_{i} p_i x_i}\right)^2 \right]
+\geqslant 0
+$$
+
+For any arbitrary $\text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$, we have
+
+$$
+\text {}{\boldsymbol{\xi}}^T J \text {}{\boldsymbol{\xi}} = \text {}{\boldsymbol{\xi}}^T \boldsymbol{X} J_s \boldsymbol{X}^T \text {}{\boldsymbol{\xi}}
+= {\left(\boldsymbol{X}^T \text {}{\boldsymbol{\xi}}\right)}^T J_s {\left(\boldsymbol{X}^T \text {}{\boldsymbol{\xi}}\right)}
+\geqslant 0
 $$
 
 ## Definitions
@@ -70,7 +85,7 @@ which assigns a subset of $Y$ to each point of $X$, where $\mathscr{P}(Y)$ denot
 
 ### Closed
 
-Suppose $X$ and $Y$ are two topological spaces. A point-to-set map $\mathcal{A}$ is said to be closed at $x_0 \in X$ if:
+Suppose $X$ and $Y$ are two topological spaces. A point-to-set map $\mathcal{A}: X \to \mathscr{P}(Y)$ is said to be closed at $\mathbf x_0 \in X$ if:
 
 $$
 \begin{align*}
@@ -108,8 +123,7 @@ $$
 $$
 
 ### Uniformly Compact
-
-$\mathcal{A}$ is said to be uniformly compact on $X$ if there exists a compact set $H$ independent of $\text {}{\mathbf {x}}$ such that:
+A point-to-set map $\mathcal{A}: X \to \mathscr{P}(X)$ is said to be uniformly compact on $X$ if there exists a compact set $H$ independent of $\text {}{\mathbf {x}}$ such that:
 
 $$
 \forall \text {}{\mathbf {x}} \in X, \mathcal{A} \left( \text {}{\mathbf {x}} \right) \subset H
@@ -153,7 +167,7 @@ $$
 $\mathcal{A}$ is said to be globally convergent if: For any chosen initial point $\text {} {\boldsymbol{\xi}_0}$, the sequence ${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$ generated by $$\text {} {\boldsymbol{\xi}_{t + 1}} \in \mathcal{A} \left (\text {} {\boldsymbol{\xi}_t} \right ), t = 0, 1, \cdots$$ (or a subsequence) converges to a point for which a necessary condition of optimality holds.
 
 ## Lemma 4
-Consider an energy function
+Consider an energy function $$\operatorname {E}: X \to \mathbb {R}$$:
 
 $$
 \operatorname {E} \left ( \boldsymbol{\xi}  \right ) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}  \right )
@@ -171,7 +185,7 @@ $$
 \nabla _{\boldsymbol{\xi}} \operatorname {E_1} \left ( \boldsymbol{\xi}_{t + 1} \right ) = \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right )
 $$
 
-ensures the sequence $${\left \lbrace \operatorname {E} \left ( \text {} {\boldsymbol{\xi}_t} \right ) \right \rbrace} _{t=0} ^{\infty}$$ monotonically decreases.
+guarantees the sequence $${\left \lbrace \operatorname {E} \left ( \text {} {\boldsymbol{\xi}_t} \right ) \right \rbrace} _{t=0} ^{\infty}$$ monotonically decreases.
 
 ### Proof
 $$\operatorname {E_1}$$ and $$\operatorname {E_2}$$ are convex functions, so that $$\forall t \geqslant 0$$,
@@ -201,7 +215,7 @@ $$
 \boldsymbol{X} = \left(\text {} {\mathbf {x}_{1}}, \dots, \text {}{\mathbf {x}_{N}} \right)
 $$
 
-where $\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{d}$.
+where $\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{d}$. Thus $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}$$.
 The largest norm of a pattern is:
 
 $$
@@ -210,11 +224,13 @@ $$
 
 The query or state of the Hopfield Network is $\boldsymbol{\xi} \in \mathbb {R}^{d}$.
 Define energy $\operatorname {E} \left ( \boldsymbol{\xi}  \right )$ for a continuous query or state $\boldsymbol{\xi}$:
+
 $$
 \operatorname {E} \left ( \boldsymbol{\xi}  \right ) = - \operatorname{lse} \left ( \beta, \boldsymbol{X}^T \boldsymbol{\xi}  \right ) + \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + \beta^{-1} \ln N + \dfrac {1} {2} M^2 \tag {1}
 $$
 
 ## New Update Rule
+
 $$
 \boldsymbol{\xi}_{t + 1} = \mathcal{F} \left ( \boldsymbol{\xi}_{t} \right ) = \boldsymbol{X}\text {}{\mathbf {p}} = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}_{t}} \right)  \tag {2}
 $$
@@ -227,7 +243,7 @@ $$
 
 ## Theorem 1 Global Convergence: Energy
 
-The update rule (2) converges globally: For $\boldsymbol{\xi}_{t+ 1} = \mathcal{F} \left ( \boldsymbol{\xi}_{t} \right )$, the energy $\operatorname {E} \left ( \boldsymbol{\xi}_{t} \right ) \to \operatorname {E} \left ( \boldsymbol{\xi}^{\ast} \right )$ for $t \to \infty $ and one accumulation point $\boldsymbol{\xi}^{\ast}$.
+The update rule (2) converges globally: For $$\boldsymbol{\xi}_{t+ 1} = \mathcal{F} \left ( \boldsymbol{\xi}_{t} \right )$$, the energy $$\operatorname {E} \left ( \boldsymbol{\xi}_{t} \right ) \to \operatorname {E} \left ( \boldsymbol{\xi}^{\ast} \right )$$ for $$t \to \infty$$ and one accumulation point $$\boldsymbol{\xi}^{\ast}$$.
 
 
 ### Proof
@@ -244,7 +260,7 @@ $$
 Hence $\boldsymbol{\xi}_{t + 1}$ is in the sphere
 
 $$
-S = \left \{\text {}{\mathbf {x}} | \left \lVert {\text {}{\mathbf {x}}} \right \rVert _2 \leqslant M \right \} \tag {Theo1.1}
+S = \left \{\text {}{\boldsymbol{\xi}} \vert \left \lVert {\text {}{\boldsymbol{\xi}}} \right \rVert _2 \leqslant M \right \} \tag {Theo1.1}
 $$
 
 which is a convex and compact set.
@@ -285,7 +301,7 @@ $$
 \mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \left \{ \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}_{t}} \right) \right \}
 $$
 
-Accodring to Lemma 4, $\mathcal{A}$ is monotonic with respect to $\operatorname {E}$.
+According to Lemma 4, $\mathcal{A}$ is monotonic with respect to $\operatorname {E}$.
 
 According to (Theo1.1), all points $$\boldsymbol{\xi}_t, t \geqslant 1$$ are in a compact set $S$. Hence there must be a convergent subsequence
 
@@ -303,35 +319,55 @@ $$
 $\mathcal{A}$ is monotonic with respect to $\operatorname {E}$. So that
 
 $$
-\forall t \geqslant 0, \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \geqslant \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right)
+\forall t \geqslant 0, \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \geqslant \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right)\tag {Theo1.3}
 $$
 
 Using (Theo1.2) and the definition of limit given $$\varepsilon \ge 0$$, there is a $$K_{\varepsilon}$$ such that
 
 $$
-{E}\left(\boldsymbol{\xi}_{t_{K_{\varepsilon}}}\right) < \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) + \varepsilon
+\operatorname {E}\left(\boldsymbol{\xi}_{t_{K_{\varepsilon}}}\right) < \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) + \varepsilon
 $$
 
 $\mathcal{A}$ is monotonic with respect to $\operatorname {E}$. So that
 
 $$
-\forall t > t_{K_{\varepsilon}}, {E}\left(\boldsymbol{\xi}_{t}\right) \leqslant {E}\left(\boldsymbol{\xi}_{t_{K_{\varepsilon}}}\right) < \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) + \varepsilon
+\forall t > t_{K_{\varepsilon}}, \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \leqslant \operatorname {E}\left(\boldsymbol{\xi}_{t_{K_{\varepsilon}}}\right) < \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) + \varepsilon
 $$
 
 Equations then yield
 
 $$
-\forall t > t_{K_{\varepsilon}}, \left \lvert {E}\left(\boldsymbol{\xi}_{t}\right) - \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) \right \rvert < \varepsilon
+\forall t > t_{K_{\varepsilon}}, \left \lvert \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) - \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) \right \rvert < \varepsilon
 $$
 
 Therefore
 
 $$
-\operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \to \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right), \text{ as } t \to \infty
+\operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \to \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) = \operatorname {E}^{\ast}, \text{ as } t \to \infty
 $$
 
+According to (Theo1.3),
+
+$$
+\operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) = {\inf {\left \lbrace \operatorname {E} \left ( \text {} {\boldsymbol{\xi}_t} \right ) \right \rbrace} _{t=0} ^{\infty}}
+$$
 
 ## Theorem 2 Global Convergence: Stationary Points
+For the iteration Eq. (2) we have
+
+$$
+\operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \to \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) = \operatorname {E}^{\ast}, \text{ as } t \to \infty
+$$
+
+for some stationary point $$\boldsymbol{\xi}^{\ast}$$. Furthermore
+
+$$
+\left \lVert \boldsymbol{\xi}_{t + 1} - \boldsymbol{\xi}_{t} \right \rVert _2 \to 0, \text{ as } t \to \infty
+$$
+
+And either $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ converges, or, in the other case, the set of limit points of $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ is a connected and compact subset of $$\mathcal{L} \left ( \operatorname {E}^{\ast} \right )$$, where $$\mathcal{L} \left ( a \right ) = \left \lbrace \boldsymbol{\xi} \in \mathcal{L} \vert \operatorname {E} \left ( \text {} {\boldsymbol{\xi}} \right ) = a \right \rbrace$$ and $$\mathcal{L}$$ is the set of stationary points of the iteration Eq. (2). If $$\mathcal{L} \left ( \operatorname {E}^{\ast} \right )$$ is finite, then any sequence $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ generated by the iteration Eq. (2) converges to some $$\boldsymbol{\xi}^{\ast} \in \mathcal{L} \left ( \operatorname {E}^{\ast} \right )$$.
+
+### Proof
 
 Let
 
