@@ -152,9 +152,14 @@ Let $X$ be a set and $\text {} {\mathbf {x}_{0}} \in X$ a given point. Then an a
 
 Let $X$ be a set and $\text {} {\mathbf {x}_{0}} \in X$ a given point. Then an algorithm, $\mathcal{A}$, with initial point $\text {} {\mathbf {x}_{0}}$ is a point-to-set map which generates a sequence ${\text {} {\mathbf {x}_{t}}} _{t=0} ^{\infty}$ via the rule
 
-Let $X$ be a set and $\text {} {\mathbf {x}_{0}} \in X$ a given point. Then an algorithm, $\mathcal{A}$, with initial point $\text {} {\mathbf {x}_{0}}$ is a point-to-set map which generates a sequence
+Let $X$ be a set and $\text {} {\mathbf {x}_{0}} \in X$ a given point.
+
+Then an algorithm, $\mathcal{A}$, with initial point $\text {} {\mathbf {x}_{0}}$ is a point-to-set map which generates a sequence
 
 ${\left \lbrace \text {} {\mathbf {x}_{t}} \right \rbrace} _{t=0} ^{\infty}$ via the rule
+
+
+Then an algorithm, $\mathcal{A}$, with initial point $\text {} {\mathbf {x}_{0}}$ is a point-to-set map which generates a sequence ${\left \lbrace \text {} {\mathbf {x}_{t}} \right \rbrace} _{t=0} ^{\infty}$ via the rule
 
 $$
 \text {}{\mathbf {x}_{t + 1}} \in \mathcal{A} \left (\text {} {\mathbf {x}_{t}} \right ), t = 0, 1, \cdots
