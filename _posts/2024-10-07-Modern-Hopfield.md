@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Modern Hopfield Network
+title: Global Convergence of Modern Hopfield Network
 ---
 
 ## Notations
@@ -369,13 +369,13 @@ $$
 $$
 
 ## Lemma 6
-Given a continuous function $$h \left(\mathbf {x}, \mathbf {y} \right)$$ on $$X \times Y$$, define the point-to-set map $$\mathcal{A}: X \to \mathscr{P}(Y)$$ by
+Given a continuous function $$h \left(\mathbf {x}, \mathbf {y} \right)$$ on $$X \times Y$$, where $$X$$ and $$Y$$ are closed sets, define the point-to-set map $$\mathcal{A}: X \to \mathscr{P}(Y)$$ by
 
 $$
 \mathcal{A} \left ( \mathbf {x} \right ) = \underset{\mathbf {y} \in Y} {\operatorname{argmin}} h \left(\mathbf {x}, \mathbf {y} \right)
 $$
 
-If $$\mathcal{A}$$ is nonempty on $X$, then $$\mathcal{A}$$ is closed.
+If $$\mathcal{A}$$ is nonempty for each $\mathbf {x} \in X$, then $$\mathcal{A}$$ is closed.
 
 ### Proof
 Suppose
@@ -393,8 +393,9 @@ $$
 \end{align*}
 $$
 
-By continuity of ${h}$
+Since $$X$$ and $$Y$$ are closed sets, $$\left(\mathbf {x}_{0}, \mathbf {y}_{0} \right) \in X \times Y$$.
 
+By continuity of ${h}$
 $$
 h \left(\mathbf {x}_{t}, \mathbf {y}_{t} \right) \to h \left(\mathbf {x}_{0}, \mathbf {y}_{0} \right) \text{ as } t \to \infty \\
 \forall \mathbf {y} \in Y, h \left(\mathbf {x}_{t}, \mathbf {y} \right) \to h \left(\mathbf {x}_{0}, \mathbf {y} \right) \text{ as } t \to \infty
@@ -455,6 +456,33 @@ g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) = \operatorname {E_1} \left
 $$
 
 where $$\operatorname {E_1}, \operatorname {E_2}$$ are defined by (Theo1.2). $$C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ does not depend on $\boldsymbol{\xi}$.
+
+Let
+
+$$
+\mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \underset{\boldsymbol{\xi} \in S} {\operatorname{argmin}} g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) \tag {Theo2.5}
+$$
+
+where $$S$$ is a compact set defined in (Theo1.1). Then $\mathcal{A}$ is uniformly compact on $S$.
+
+$$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) = \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + C_1$$ is continuous, so given any $$\boldsymbol{\xi}_t$$, $$g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)$$ is continuous on the compact set $$S$$, by the Weierstrass theorem, it has minimum on $$S$$. So $$\mathcal{A} \left ( \boldsymbol{\xi} \right )$$ is nonempty for any $$\boldsymbol{\xi}$$.
+
+$$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right )$$ is continuous. $$\nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi} \right ) = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}} \right)$$ is continuous. Hence $$g \left(\mathbf {x}, \mathbf {y} \right)$$ is continuous in $$\mathbf {x}, \mathbf {y}$$.
+
+Let
+
+$$
+h \left(\mathbf {x}, \mathbf {y} \right) = g \left(\mathbf {y}, \mathbf {x} \right)
+$$
+
+Then $$h \left(\mathbf {x}, \mathbf {y} \right)$$ is continuous.
+Using (Theo2.5)
+$$
+\mathcal{A} \left ( \mathbf {x} \right ) = \underset{\mathbf {y} \in S} {\operatorname{argmin}} g \left(\mathbf {y}, \mathbf {x} \right) = \underset{\mathbf {y} \in S} {\operatorname{argmin}} h \left(\mathbf {x}, \mathbf {y} \right)
+$$
+
+According to Lemma 6, $$\mathcal{A}$$ is closed on $$S$$.
+
 Since $\operatorname {E_2}$ is convex according to Lemma 4, the first order characterization of convexity holds:
 $$
 \operatorname {E_2} \left ( \boldsymbol{\xi}  \right ) \geqslant \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) + \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right )
@@ -472,9 +500,8 @@ $$
 
 $$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) = \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + C_1$$ is strict convex respect to $$\text {} {\boldsymbol{\xi}}$$.
 $$- \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ is both concave and convex respect to $$\text {} {\boldsymbol{\xi}}$$.
-Therefore $g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)$ is strict convex (if the domain is convex) and there exist only one minimum, which is the global minimum.
+Therefore $g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)$ is strict convex respect to $$\text {} {\boldsymbol{\xi}}$$ (if the domain is convex) and there exist only one minimum, which is the global minimum.
 Let
-
 $$
 \dfrac {\partial g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)} {\partial {\boldsymbol{\xi}}} = \nabla _{\boldsymbol{\xi}} \operatorname {E_1} \left ( \boldsymbol{\xi} \right ) - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) = \text {} {\mathbf {0}}
 $$
@@ -482,11 +509,14 @@ $$
 The minimum is:
 
 $$
-\boldsymbol{\xi}_{t + 1} \in \underset{\boldsymbol{\xi}} {\operatorname{argmin}} g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) = \left \lbrace \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) \right \rbrace \tag {Theo2.3}
+\boldsymbol{\xi}_{t + 1} = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) \tag {Theo2.3}
 $$
 
+Obviously $$\boldsymbol{\xi}_{t + 1} \in S$$. Thus 
+$$
+\mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \underset{\boldsymbol{\xi} \in S} {\operatorname{argmin}} g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) = \left \lbrace \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) \right \rbrace \tag {Theo2.5}
+$$
 Hence
-
 $$
 \text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, g \left(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t \right) \lt g \left(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t \right)  \tag {Theo2.4}
 $$
@@ -497,36 +527,63 @@ $$
 \text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, \operatorname {E} \left ( \boldsymbol{\xi}_{t + 1} \right ) \leqslant g \left(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t \right) \lt g \left(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t \right) = \operatorname {E} \left ( \boldsymbol{\xi}_t  \right )
 $$
 
-Let
-
-$$
-\mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \underset{\boldsymbol{\xi}} {\operatorname{argmin}} g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) = \left \{ \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}_{t}} \right) \right \} \tag {Theo2.5}
-$$
-
 Thus
 
 $$
-\forall \boldsymbol{\xi}_{t + 1} \in \mathcal{A} \left ( \boldsymbol{\xi}_t \right ), \text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, \operatorname {E} \left ( \boldsymbol{\xi}_{t + 1} \right ) \lt \operatorname {E} \left ( \boldsymbol{\xi}_t \right )
+\forall \boldsymbol{\xi}_{t + 1} \in \mathcal{A} \left ( \boldsymbol{\xi}_t \right ), \text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, \operatorname {E} \left ( \boldsymbol{\xi}_{t + 1} \right ) \lt \operatorname {E} \left ( \boldsymbol{\xi}_t \right ) \tag {Theo2.6}
 $$
 
 Therefore point-set-map $\mathcal{A}$ is strictly monotonic with respect to $\operatorname {E}$.
 
-According to (Theo1.1), $\mathcal{A}$ is uniformly compact on $S$ which is a convex and compact set.
+TODO
 
-$$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) = \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + C_1$$ is continuous. $$\nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi} \right ) = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}} \right)$$ is continuous. Hence $$g \left(\mathbf {x}, \mathbf {y} \right)$$ is continuous in $$\mathbf {x}, \mathbf {y}$$.
-$$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right )$$ is continuous, so $$g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)$$ is continuous on $$S$$ for any $$\boldsymbol{\xi}_t$$, by the Weierstrass theorem, $$\mathcal{A} \left ( \boldsymbol{\xi} \right )$$ is nonempty on $$S$$.
-Let
+Given a convergent subsequence
 
 $$
-h \left(\mathbf {x}, \mathbf {y} \right) = g \left(\mathbf {y}, \mathbf {x} \right)
+\boldsymbol{\xi}_{t_k} \to \boldsymbol{\xi}^{\ast}, \text{ as } k \to \infty
 $$
 
-Then $$h \left(\mathbf {x}, \mathbf {y} \right)$$ is continuous.
-Using (Theo2.5)
+where $$\boldsymbol{\xi}^{\ast} \in S$$ is a accumulation point.
+Consider subsequence:
 
 $$
-\mathcal{A} \left ( \mathbf {x} \right ) = \underset{\mathbf {y} \in S} {\operatorname{argmin}} g \left(\mathbf {y}, \mathbf {x} \right) = \underset{\mathbf {y} \in S} {\operatorname{argmin}} h \left(\mathbf {x}, \mathbf {y} \right)
+{\left \lbrace \boldsymbol{\xi}_{t_k + 1} \right \rbrace} _{k=1} ^{\infty}
 $$
 
-According to Lemma 6, $$\mathcal{A}$$ is closed on $$S$$.
+According to (Theo1.1), all points $$\boldsymbol{\xi}_{t_k + 1}, k \geqslant 1$$ are in the compact set $S$. Hence it must have a convergent subsequence
 
+$$
+\boldsymbol{\xi}_{t_{k_l} + 1} \to \boldsymbol{\xi}^{\ast\ast}, \text{ as } l \to \infty
+$$
+
+where $$\boldsymbol{\xi}^{\ast\ast} \in S$$ is a accumulation point.
+
+Obviously
+
+$$
+\boldsymbol{\xi}_{k_l} \to \boldsymbol{\xi}^{\ast}, \text{ as } l \to \infty
+$$
+
+Since
+
+$$
+\boldsymbol{\xi}_{t_{k_l} + 1} \in \mathcal{A} \left ( \boldsymbol{\xi}_{t_{k_l}} \right )
+$$
+
+And $$\mathcal{A}$$ is closed on $$S$$, thus
+$$
+\boldsymbol{\xi}^{\ast\ast} \in \mathcal{A} \left ( \boldsymbol{\xi}^{\ast} \right )
+$$
+If $$\boldsymbol{\xi}^{\ast} \neq \boldsymbol{\xi}^{\ast\ast}$$, using (Theo2.6), $$\operatorname {E} \left ( \boldsymbol{\xi}^{\ast\ast} \right ) \lt \operatorname {E} \left ( \boldsymbol{\xi}^{\ast} \right )$$. But according to Theorem 1, $$\operatorname {E} \left ( \boldsymbol{\xi}^{\ast\ast} \right ) = \operatorname {E} \left ( \boldsymbol{\xi}^{\ast} \right )$$. Therefore $$\boldsymbol{\xi}^{\ast} = \boldsymbol{\xi}^{\ast\ast}$$.
+
+
+
+
+$$
+
+$$
+
+$$
+{\left \lbrace \boldsymbol{\xi}_{t_{k_l} + 1} \right \rbrace} _{l=1} ^{\infty}
+$$
+.
