@@ -107,10 +107,10 @@ $$
 \begin{align*}
     \left .
     \begin{array}{l}
-        \text {} {\mathbf {x}_{k}} \to \text {} {\mathbf x_0} \text{ as } k \to \infty \\
-        \text {} {\mathbf {y}_{k}} \to \text {} {\mathbf {y}_{0}} \text{ as } k \to \infty \\
-        \text {} {\mathbf {x}_{k}} \in X \\
-        \text {} {\mathbf {y}_{k}} \in \mathcal{A} \left(\text {} {\mathbf {x}_{k}} \right)
+        \text {} {\mathbf {x}_{t}} \to \text {} {\mathbf x_0} \text{ as } t \to \infty \\
+        \text {} {\mathbf {y}_{t}} \to \text {} {\mathbf {y}_{0}} \text{ as } t \to \infty \\
+        \text {} {\mathbf {x}_{t}} \in X \\
+        \text {} {\mathbf {y}_{t}} \in \mathcal{A} \left(\text {} {\mathbf {x}_{t}} \right)
     \end{array}
     \right\} \implies \text {} {\mathbf {y}_{0}} \in \mathcal{A} \left(\text {} {\mathbf x_0} \right)
 \end{align*}
@@ -338,22 +338,22 @@ $$
 \forall t \geqslant 0, \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \geqslant \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right)\tag {Theo1.4}
 $$
 
-Using (Theo1.3) and the definition of limit given $$\varepsilon \ge 0$$, there is a $$K_{\varepsilon}$$ such that
+Using (Theo1.3) and the definition of limit, given $$\varepsilon_{1} > 0$$, there is a $$t_{\varepsilon_{1}}$$ such that
 
 $$
-\operatorname {E}\left(\boldsymbol{\xi}_{t_{K_{\varepsilon}}}\right) < \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) + \varepsilon
+\operatorname {E}\left(\boldsymbol{\xi}_{t_{\varepsilon_{1}}}\right) < \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) + \varepsilon_{1}
 $$
 
 $\mathcal{A}$ is monotonic with respect to $\operatorname {E}$. So that
 
 $$
-\forall t > t_{K_{\varepsilon}}, \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \leqslant \operatorname {E}\left(\boldsymbol{\xi}_{t_{K_{\varepsilon}}}\right) < \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) + \varepsilon
+\forall t > t_{\varepsilon_{1}}, \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \leqslant \operatorname {E}\left(\boldsymbol{\xi}_{t_{\varepsilon_{1}}}\right) < \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) + \varepsilon_{1}
 $$
 
 Equations then yield
 
 $$
-\forall t > t_{K_{\varepsilon}}, \left \lvert \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) - \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) \right \rvert < \varepsilon
+\forall t > t_{\varepsilon_{1}}, \left \lvert \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) - \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) \right \rvert < \varepsilon_{1}
 $$
 
 Therefore
@@ -366,6 +366,69 @@ According to (Theo1.4), $$\operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) 
 
 $$
 \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) = {\inf {\left \lbrace \operatorname {E} \left ( \text {} {\boldsymbol{\xi}_t} \right ) \right \rbrace} _{t=0} ^{\infty}}
+$$
+
+## Lemma 6
+Given a continuous function $$h \left(\mathbf {x}, \mathbf {y} \right)$$ on $$X \times Y$$, define the point-to-set map $$\mathcal{A}: X \to \mathscr{P}(Y)$$ by
+
+$$
+\mathcal{A} \left ( \mathbf {x} \right ) = \underset{\mathbf {y} \in Y} {\operatorname{argmin}} h \left(\mathbf {x}, \mathbf {y} \right)
+$$
+
+If $$\mathcal{A}$$ is nonempty on $X$, then $$\mathcal{A}$$ is closed.
+
+### Proof
+Suppose
+
+$$
+\begin{align*}
+    \left \lbrace
+\begin{array}{l}
+{\mathbf {x}_{t}} \to {\mathbf {x}_{0}} \text{ as } t \to \infty \\
+{\mathbf {y}_{t}} \to {\mathbf {y}_{0}} \text{ as } t \to \infty \\
+{\mathbf {x}_{t}} \in X \\
+{\mathbf {y}_{t}} \in \mathcal{A} \left ( \mathbf {x}_{t} \right ) = \underset{\mathbf {y} \in Y} {\operatorname{argmin}} h \left(\mathbf {x}_{t}, \mathbf {y} \right)
+\end{array}
+\right.
+\end{align*}
+$$
+
+By continuity of ${h}$
+
+$$
+h \left(\mathbf {x}_{t}, \mathbf {y}_{t} \right) \to h \left(\mathbf {x}_{0}, \mathbf {y}_{0} \right) \text{ as } t \to \infty \\
+\forall \mathbf {y} \in Y, h \left(\mathbf {x}_{t}, \mathbf {y} \right) \to h \left(\mathbf {x}_{0}, \mathbf {y} \right) \text{ as } t \to \infty
+$$
+
+Using the definition of limit, $$\forall \mathbf {y} \in Y, \forall \varepsilon_{2} > 0$$, there is a $$t_{\varepsilon_{2}}$$ such that $$\forall t > t_{\varepsilon_{2}}$$,
+
+$$
+h \left(\mathbf {x}_{t}, \mathbf {y}_{t} \right) > h \left(\mathbf {x}_{0}, \mathbf {y}_{0} \right) - \varepsilon_{2} \\
+h \left(\mathbf {x}_{t}, \mathbf {y} \right) < h \left(\mathbf {x}_{0}, \mathbf {y} \right) + \varepsilon_{2} \tag{Lemma6.1}
+$$
+
+Because
+
+$$
+{\mathbf {y}_{t}} \in \mathcal{A} \left ( \mathbf {x}_{t} \right ) = \underset{\mathbf {y} \in Y} {\operatorname{argmin}} h \left(\mathbf {x}_{t}, \mathbf {y} \right) \implies h \left(\mathbf {x}_{t}, \mathbf {y}_{t} \right) \leqslant h \left(\mathbf {x}_{t}, \mathbf {y} \right) \tag{Lemma6.2}
+$$
+
+Using (Lemma6.1), (Lemma6.2)
+
+$$
+h \left(\mathbf {x}_{0}, \mathbf {y}_{0} \right) < h \left(\mathbf {x}_{t}, \mathbf {y}_{t} \right) + \varepsilon_{2} \leqslant h \left(\mathbf {x}_{t}, \mathbf {y} \right) + \varepsilon_{2} < h \left(\mathbf {x}_{0}, \mathbf {y} \right) + 2 \varepsilon_{2}
+$$
+
+Hence
+
+$$
+h \left(\mathbf {x}_{0}, \mathbf {y}_{0} \right) \leqslant h \left(\mathbf {x}_{0}, \mathbf {y} \right)
+$$
+
+Therefore
+
+$$
+{\mathbf {y}_{0}} \in \mathcal{A} \left(\text {} {\mathbf {x}_{0}} \right) = \underset{\mathbf {y} \in Y} {\operatorname{argmin}} h \left(\mathbf {x}_{0}, \mathbf {y} \right)
 $$
 
 ## Theorem 2 Global Convergence: Stationary Points
@@ -388,7 +451,7 @@ And either $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0}
 Let
 
 $$
-g(\boldsymbol{\xi}, \boldsymbol{\xi}_t) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right ) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right ) \tag {Theo1.5}
+g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right ) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right ) \tag {Theo2.1}
 $$
 
 where $$\operatorname {E_1}, \operatorname {E_2}$$ are defined by (Theo1.2). $$C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ does not depend on $\boldsymbol{\xi}$.
@@ -403,41 +466,41 @@ $$
 \begin{align*}
 \operatorname {E} \left ( \boldsymbol{\xi}  \right ) &= \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}  \right ) \\
 & \leqslant \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right ) \\
-&= g(\boldsymbol{\xi}, \boldsymbol{\xi}_t) \tag {Theo1.6}
+&= g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) \tag {Theo2.2}
 \end{align*}
 $$
 
 $$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) = \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + C_1$$ is strict convex respect to $$\text {} {\boldsymbol{\xi}}$$.
 $$- \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ is both concave and convex respect to $$\text {} {\boldsymbol{\xi}}$$.
-Therefore $g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)$ is strict convex (if the domain is convex) and there exist only one minimum, which is the global minimum.
+Therefore $g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)$ is strict convex (if the domain is convex) and there exist only one minimum, which is the global minimum.
 Let
 
 $$
-\dfrac {\partial g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)} {\partial {\boldsymbol{\xi}}} = \nabla _{\boldsymbol{\xi}} \operatorname {E_1} \left ( \boldsymbol{\xi} \right ) - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) = \text {} {\mathbf {0}}
+\dfrac {\partial g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)} {\partial {\boldsymbol{\xi}}} = \nabla _{\boldsymbol{\xi}} \operatorname {E_1} \left ( \boldsymbol{\xi} \right ) - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) = \text {} {\mathbf {0}}
 $$
 
 The minimum is:
 
 $$
-\boldsymbol{\xi}_{t + 1} = \underset{\boldsymbol{\xi}} {\operatorname{argmin}} g(\boldsymbol{\xi}, \boldsymbol{\xi}_t) = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) \tag {Theo1.7}
+\boldsymbol{\xi}_{t + 1} \in \underset{\boldsymbol{\xi}} {\operatorname{argmin}} g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) = \left \lbrace \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) \right \rbrace \tag {Theo2.3}
 $$
 
 Hence
 
 $$
-\text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, g(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t) \lt g(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t)  \tag {Theo1.8}
+\text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, g \left(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t \right) \lt g \left(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t \right)  \tag {Theo2.4}
 $$
 
-Using (Theo1.5), (Theo1.6), (Theo1.8)
+Using (Theo2.1), (Theo2.2), (Theo2.4)
 
 $$
-\text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, \operatorname {E} \left ( \boldsymbol{\xi}_{t + 1} \right ) \leqslant g(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t) \lt g(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t) = \operatorname {E} \left ( \boldsymbol{\xi}_t  \right )
+\text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, \operatorname {E} \left ( \boldsymbol{\xi}_{t + 1} \right ) \leqslant g \left(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t \right) \lt g \left(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t \right) = \operatorname {E} \left ( \boldsymbol{\xi}_t  \right )
 $$
 
 Let
 
 $$
-\mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \left \{ \boldsymbol{\xi}_{t + 1} \right \} = \left \{ \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}_{t}} \right) \right \}
+\mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \underset{\boldsymbol{\xi}} {\operatorname{argmin}} g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) = \left \{ \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}_{t}} \right) \right \} \tag {Theo2.5}
 $$
 
 Thus
@@ -450,6 +513,20 @@ Therefore point-set-map $\mathcal{A}$ is strictly monotonic with respect to $\op
 
 According to (Theo1.1), $\mathcal{A}$ is uniformly compact on $S$ which is a convex and compact set.
 
- $$\operatorname {E_1}, \operatorname {E_2}$$ are differentiable convex functions. $$\nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi} \right ) = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}} \right)$$ is continuous.
+$$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) = \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + C_1$$ is continuous. $$\nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi} \right ) = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}} \right)$$ is continuous. Hence $$g \left(\mathbf {x}, \mathbf {y} \right)$$ is continuous in $$\mathbf {x}, \mathbf {y}$$.
+$$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right )$$ is continuous, so $$g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)$$ is continuous on $$S$$ for any $$\boldsymbol{\xi}_t$$, by the Weierstrass theorem, $$\mathcal{A} \left ( \boldsymbol{\xi} \right )$$ is nonempty on $$S$$.
+Let
 
-Obviously $$\mathcal{A} \left ( \boldsymbol{\xi} \right )$$ is nonempty for any $$\boldsymbol{\xi} \in \mathbb {R}^{d}$$. Therefore $$\mathcal{A}$$ is closed on $$S$$.
+$$
+h \left(\mathbf {x}, \mathbf {y} \right) = g \left(\mathbf {y}, \mathbf {x} \right)
+$$
+
+Then $$h \left(\mathbf {x}, \mathbf {y} \right)$$ is continuous.
+Using (Theo2.5)
+
+$$
+\mathcal{A} \left ( \mathbf {x} \right ) = \underset{\mathbf {y} \in S} {\operatorname{argmin}} g \left(\mathbf {y}, \mathbf {x} \right) = \underset{\mathbf {y} \in S} {\operatorname{argmin}} h \left(\mathbf {x}, \mathbf {y} \right)
+$$
+
+According to Lemma 6, $$\mathcal{A}$$ is closed on $$S$$.
+
