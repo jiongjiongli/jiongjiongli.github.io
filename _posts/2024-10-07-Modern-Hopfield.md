@@ -35,24 +35,30 @@ $$
 $$
 
 where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
-## Lemma 2
-The Jacobian $J_s$ of $\text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $ is
 
 $$
-J_s = \dfrac {\partial \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right)} {\partial \text {}{\mathbf {x}}} = \beta \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right)
+\nabla _{\text {}{\boldsymbol{\xi}}} \operatorname{lse} \left ( \beta, \boldsymbol{X}^T \boldsymbol{\xi}  \right ) = \boldsymbol{X} \operatorname{softmax}\left(\beta \text {}{\boldsymbol{X}^T \boldsymbol{\xi}} \right)
+$$
+
+where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
+## Lemma 2
+The Jacobian $J_s \left(\text {}{\mathbf {x}} \right)$ of $$ \text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)= \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $$ is
+
+$$
+J_s \left(\text {}{\mathbf {x}} \right) = \dfrac {\partial \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right)} {\partial \text {}{\mathbf {x}}} = \beta \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right)
 $$
 
 where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
-The Jacobian $J$ of $\text {}{\mathbf {p}} \left(\boldsymbol{\xi} \right)=\operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $ is
-
+The Jacobian $J \left(\boldsymbol{\xi} \right)$ of $$\text {} {\boldsymbol{X}} \text {}{\mathbf {p}} \left(\boldsymbol{X}^T \boldsymbol{\xi} \right)= \text {} {\boldsymbol{X}} \operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $$ is
 $$
-J = \dfrac {\partial \operatorname{softmax}\left(\beta \boldsymbol{X}^T\boldsymbol{\xi} \right)} {\partial \text {}{\boldsymbol{\xi}}} = \beta \boldsymbol{X} \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \boldsymbol{X}^T = \boldsymbol{X} J_s \boldsymbol{X}^T
+J  \left(\boldsymbol{\xi} \right) = \dfrac {\partial \left( \text {} {\boldsymbol{X}} \operatorname{softmax}\left(\beta \boldsymbol{X}^T\boldsymbol{\xi} \right) \right)} {\partial \text {}{\boldsymbol{\xi}}} = \beta \boldsymbol{X} \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \boldsymbol{X}^T = \boldsymbol{X} J_s \boldsymbol{X}^T
 $$
 
 where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
 ## Lemma 3
-The Jacobian $J_s$ of $\text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $ is symmetric and positive semi-definite where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
-The Jacobian $J$ of $\text {}{\mathbf {p}} \left(\boldsymbol{\xi} \right)=\operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $ is symmetric and positive semi-definite where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
+The Jacobian $J_s \left(\text {}{\mathbf {x}} \right)$ of $\text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $ is symmetric and positive semi-definite where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
+The Jacobian $J  \left(\boldsymbol{\xi} \right)$ of $$\text {} {\boldsymbol{X}} \text {}{\mathbf {p}} \left(\boldsymbol{X}^T \boldsymbol{\xi} \right)=\text {} \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $$ is symmetric and positive semi-definite where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
+
 ### Proof
 According to Lemma 2, obviously they are symmetric.
 For any arbitrary $\text {}{\mathbf {x}} \in \mathbb {R}^{N}$, we have
@@ -70,6 +76,16 @@ $$
 = {\left(\boldsymbol{X}^T \text {}{\boldsymbol{\xi}}\right)}^T J_s {\left(\boldsymbol{X}^T \text {}{\boldsymbol{\xi}}\right)}
 \geqslant 0
 $$
+
+## Lemma 4
+
+$$\operatorname{lse} \left ( \beta, \text {}{\mathbf {x}} \right )$$ is a convex respect to $$\text {} {\mathbf {x}}$$ where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
+
+$$\operatorname{lse} \left ( \beta, \boldsymbol{X}^T \boldsymbol{\xi}  \right )$$ is a convex respect to $$\text {} {\boldsymbol{\xi}}$$ where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
+
+### Proof
+
+The Jacobian of the $\operatorname{softmax}$ is Hessian of the $\operatorname{lse}$ according to Lemma 1. The Jacobian of the $\operatorname{softmax}$ is positive semi-definite according to Lemma 3. Therefore $\operatorname{lse}$ is a convex.
 
 ## Definitions
 
@@ -166,7 +182,7 @@ $$
 
 $\mathcal{A}$ is said to be globally convergent if: For any chosen initial point $\text {} {\boldsymbol{\xi}_0}$, the sequence ${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$ generated by $$\text {} {\boldsymbol{\xi}_{t + 1}} \in \mathcal{A} \left (\text {} {\boldsymbol{\xi}_t} \right ), t = 0, 1, \cdots$$ (or a subsequence) converges to a point for which a necessary condition of optimality holds.
 
-## Lemma 4
+## Lemma 5
 Consider an energy function $$\operatorname {E}: X \to \mathbb {R}$$:
 
 $$
@@ -257,15 +273,15 @@ $$
 = M
 $$
 
-Hence $\boldsymbol{\xi}_{t + 1}$ is in the sphere
+Hence
 
 $$
-S = \left \{\text {}{\boldsymbol{\xi}} \vert \left \lVert {\text {}{\boldsymbol{\xi}}} \right \rVert _2 \leqslant M \right \} \tag {Theo1.1}
+\forall t \geqslant 1, \boldsymbol{\xi}_{t} \in S = \left \{\text {}{\boldsymbol{\xi}} \vert \left \lVert {\text {}{\boldsymbol{\xi}}} \right \rVert _2 \leqslant M \right \} \tag {Theo1.1}
 $$
 
 which is a convex and compact set.
 
-The Jacobian of the $\operatorname{softmax}$ is positive semi-definite according to Lemma 3. The Jacobian of the $\operatorname{softmax}$ is Hessian of the $\operatorname{lse}$, therefore $\operatorname{lse}$ is a convex.
+According to Lemma 4, $\operatorname{lse}$ is a convex.
 Hence the energy function $\operatorname {E} \left ( \boldsymbol{\xi}  \right )$ is the difference of two convex functions $\operatorname {E_1} \left ( \boldsymbol{\xi}  \right )$ and $\operatorname {E_2} \left ( \boldsymbol{\xi}  \right )$:
 $$
 \begin{align*}
@@ -301,7 +317,7 @@ $$
 \mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \left \{ \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}_{t}} \right) \right \}
 $$
 
-According to Lemma 4, $\mathcal{A}$ is monotonic with respect to $\operatorname {E}$.
+According to Lemma 5, $\mathcal{A}$ is monotonic with respect to $\operatorname {E}$.
 
 According to (Theo1.1), all points $$\boldsymbol{\xi}_t, t \geqslant 1$$ are in a compact set $S$. Hence there must be a convergent subsequence
 
@@ -372,12 +388,11 @@ And either $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0}
 Let
 
 $$
-g(\boldsymbol{\xi}, \boldsymbol{\xi}_t) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right ) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right )
+g(\boldsymbol{\xi}, \boldsymbol{\xi}_t) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right ) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right ) \tag {Theo1.5}
 $$
 
-where $$\operatorname {E_1}, \operatorname {E_2}$$ are defined by (Theo1.2), and $$C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ does not depend on $\boldsymbol{\xi}$.
-Since $\operatorname {E_2}$ is convex, the first order characterization of convexity holds:
-
+where $$\operatorname {E_1}, \operatorname {E_2}$$ are defined by (Theo1.2). $$C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ does not depend on $\boldsymbol{\xi}$.
+Since $\operatorname {E_2}$ is convex according to Lemma 4, the first order characterization of convexity holds:
 $$
 \operatorname {E_2} \left ( \boldsymbol{\xi}  \right ) \geqslant \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) + \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right )
 $$
@@ -388,39 +403,32 @@ $$
 \begin{align*}
 \operatorname {E} \left ( \boldsymbol{\xi}  \right ) &= \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}  \right ) \\
 & \leqslant \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right ) \\
-&= g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)
+&= g(\boldsymbol{\xi}, \boldsymbol{\xi}_t) \tag {Theo1.6}
 \end{align*}
 $$
 
-Because
-
-$$
-\begin{align*}
-\dfrac {\partial g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)} {\partial {\boldsymbol{\xi}}}  &= \nabla _{\boldsymbol{\xi}} \operatorname {E_1} \left ( \boldsymbol{\xi} \right ) - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \\
-\dfrac {\partial ^2 g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)} {\partial {\boldsymbol{\xi} ^2}} &= I
-\end{align*}
-$$
-
-The Hessian is strict positive definite everywhere, therefore $g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)$ is strict convex (if the domain is convex) and there exist only one minimum, which is the global minimum.
+$$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) = \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + C_1$$ is strict convex respect to $$\text {} {\boldsymbol{\xi}}$$.
+$$- \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ is both concave and convex respect to $$\text {} {\boldsymbol{\xi}}$$.
+Therefore $g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)$ is strict convex (if the domain is convex) and there exist only one minimum, which is the global minimum.
 Let
 
 $$
-\dfrac {\partial g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)} {\partial {\boldsymbol{\xi}}} = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) = \text {} {\mathbf {0}}
+\dfrac {\partial g(\boldsymbol{\xi}, \boldsymbol{\xi}_t)} {\partial {\boldsymbol{\xi}}} = \nabla _{\boldsymbol{\xi}} \operatorname {E_1} \left ( \boldsymbol{\xi} \right ) - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) = \text {} {\mathbf {0}}
 $$
 
 The minimum is:
 
 $$
-\boldsymbol{\xi}_{t + 1} = \underset{\boldsymbol{\xi}} {\operatorname{argmin}} g(\boldsymbol{\xi}, \boldsymbol{\xi}_t) = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right)
+\boldsymbol{\xi}_{t + 1} = \underset{\boldsymbol{\xi}} {\operatorname{argmin}} g(\boldsymbol{\xi}, \boldsymbol{\xi}_t) = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) \tag {Theo1.7}
 $$
 
 Hence
 
 $$
-\text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, g(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t) \lt g(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t)
+\text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, g(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t) \lt g(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t)  \tag {Theo1.8}
 $$
 
-Therefore
+Using (Theo1.5), (Theo1.6), (Theo1.8)
 
 $$
 \text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, \operatorname {E} \left ( \boldsymbol{\xi}_{t + 1} \right ) \leqslant g(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t) \lt g(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t) = \operatorname {E} \left ( \boldsymbol{\xi}_t  \right )
@@ -429,7 +437,7 @@ $$
 Let
 
 $$
-\mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \left \{ \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}_{t}} \right) \right \}
+\mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \left \{ \boldsymbol{\xi}_{t + 1} \right \} = \left \{ \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}_{t}} \right) \right \}
 $$
 
 Thus
@@ -438,8 +446,10 @@ $$
 \forall \boldsymbol{\xi}_{t + 1} \in \mathcal{A} \left ( \boldsymbol{\xi}_t \right ), \text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, \operatorname {E} \left ( \boldsymbol{\xi}_{t + 1} \right ) \lt \operatorname {E} \left ( \boldsymbol{\xi}_t \right )
 $$
 
-Therefore $\mathcal{A}$ is strictly monotonic with respect to $\operatorname {E}$.
+Therefore point-set-map $\mathcal{A}$ is strictly monotonic with respect to $\operatorname {E}$.
 
-The point-set-map $\mathcal{A}$ is uniformly compact on $S$.
+According to (Theo1.1), $\mathcal{A}$ is uniformly compact on $S$ which is a convex and compact set.
 
-$\mathcal{A}$ is closed.
+ $$\operatorname {E_1}, \operatorname {E_2}$$ are differentiable convex functions. $$\nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi} \right ) = \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}} \right)$$ is continuous.
+
+Obviously $$\mathcal{A} \left ( \boldsymbol{\xi} \right )$$ is nonempty for any $$\boldsymbol{\xi} \in \mathbb {R}^{d}$$. Therefore $$\mathcal{A}$$ is closed on $$S$$.
