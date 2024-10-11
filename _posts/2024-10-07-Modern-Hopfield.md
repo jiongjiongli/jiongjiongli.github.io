@@ -480,7 +480,10 @@ And either $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0}
 Let
 
 $$
-g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right ) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right ) \tag {Theo2.1}
+\begin{align*}
+g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) &= \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right ) \\
+&= \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right )
+\end{align*} \tag {Theo2.1}
 $$
 
 where $$\operatorname {E_1}, \operatorname {E_2}$$ are defined by (Theo1.2). $$C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ does not depend on $$\boldsymbol{\xi}$$.
@@ -533,7 +536,13 @@ Therefore $$g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)$$ is strictly c
 Let
 
 $$
-\dfrac {\partial g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)} {\partial {\boldsymbol{\xi}}} = \nabla _{\boldsymbol{\xi}} \operatorname {E_1} \left ( \boldsymbol{\xi} \right ) - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) = \text {} {\mathbf {0}} \tag {Theo2.8}
+\begin{align*}
+\dfrac {\partial g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)} {\partial {\boldsymbol{\xi}}}
+&= \nabla _{\boldsymbol{\xi}} \operatorname {E_1} \left ( \boldsymbol{\xi} \right ) - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \\
+&= \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \\
+&= \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) \\
+&= \text {} {\mathbf {0}}
+\end{align*} \tag {Theo2.8}
 $$
 
 The minimum is:
