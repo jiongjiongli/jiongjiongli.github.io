@@ -3,6 +3,9 @@ layout: post
 title: Global Convergence of Modern Hopfield Network
 ---
 
+## Introduction
+This post provide comprehensive deduction of Theorem 1 Global Convergence: Energy and Theorem 2 Global Convergence: Stationary Points.
+
 ## Notations
 1. The $$p$$-norm of a vector is denoted: $$\left \lVert {\cdot} \right \rVert _p\text{,} 1 \leqslant p$$
 
