@@ -19,7 +19,7 @@ $$
 \end{align*}
 $$
 
-where $\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{N}$.
+where $$\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{N}$$.
 
 ## Log-Sum-Exp Function
 
@@ -27,14 +27,14 @@ $$
 \operatorname{lse} \left ( \beta, \text {}{\mathbf {x}} \right ) = \beta^{-1} \ln \left( {\sum_{k=1}^{N} \exp \left( {\beta x_k} \right)} \right)
 $$
 
-where $\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{N}$.
+where $$\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{N}$$.
 
 ## Lemma 1
 $$
 \nabla _{\text {}{\mathbf {x}}} \operatorname{lse} \left ( \beta, \text {}{\mathbf {x}} \right ) = \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right)
 $$
 
-where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
+where $$\text {} {\mathbf {x}} \in \mathbb {R}^{N}$$.
 
 $$
 \nabla _{\text {}{\boldsymbol{\xi}}} \operatorname{lse} \left ( \beta, \boldsymbol{X}^T \boldsymbol{\xi}  \right ) = \boldsymbol{X} \operatorname{softmax}\left(\beta \text {}{\boldsymbol{X}^T \boldsymbol{\xi}} \right)
@@ -42,26 +42,26 @@ $$
 
 where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
 ## Lemma 2
-The Jacobian $J_s \left(\text {}{\mathbf {x}} \right)$ of $$ \text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)= \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $$ is
+The Jacobian $$J_s \left(\text {}{\mathbf {x}} \right)$$ of $$ \text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)= \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $$ is
 
 $$
 J_s \left(\text {}{\mathbf {x}} \right) = \dfrac {\partial \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right)} {\partial \text {}{\mathbf {x}}} = \beta \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right)
 $$
 
-where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
-The Jacobian $J \left(\boldsymbol{\xi} \right)$ of $$\text {} {\boldsymbol{X}} \text {}{\mathbf {p}} \left(\boldsymbol{X}^T \boldsymbol{\xi} \right)= \text {} {\boldsymbol{X}} \operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $$ is
+where $$\text {} {\mathbf {x}} \in \mathbb {R}^{N}$$.
+The Jacobian $$J \left(\boldsymbol{\xi} \right)$$ of $$\text {} {\boldsymbol{X}} \text {}{\mathbf {p}} \left(\boldsymbol{X}^T \boldsymbol{\xi} \right)= \text {} {\boldsymbol{X}} \operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $$ is
 $$
 J  \left(\boldsymbol{\xi} \right) = \dfrac {\partial \left( \text {} {\boldsymbol{X}} \operatorname{softmax}\left(\beta \boldsymbol{X}^T\boldsymbol{\xi} \right) \right)} {\partial \text {}{\boldsymbol{\xi}}} = \beta \boldsymbol{X} \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \boldsymbol{X}^T = \boldsymbol{X} J_s \boldsymbol{X}^T
 $$
 
 where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
 ## Lemma 3
-The Jacobian $J_s \left(\text {}{\mathbf {x}} \right)$ of $\text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $ is symmetric and positive semi-definite where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
-The Jacobian $J  \left(\boldsymbol{\xi} \right)$ of $$\text {} {\boldsymbol{X}} \text {}{\mathbf {p}} \left(\boldsymbol{X}^T \boldsymbol{\xi} \right)=\text {} \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $$ is symmetric and positive semi-definite where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
+The Jacobian $$J_s \left(\text {}{\mathbf {x}} \right)$$ of $$\text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $$ is symmetric and positive semi-definite where $$\text {} {\mathbf {x}} \in \mathbb {R}^{N}$$.
+The Jacobian $$J  \left(\boldsymbol{\xi} \right)$$ of $$\text {} {\boldsymbol{X}} \text {}{\mathbf {p}} \left(\boldsymbol{X}^T \boldsymbol{\xi} \right)=\text {} \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $$ is symmetric and positive semi-definite where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
 
 ### Proof
 According to Lemma 2, obviously they are symmetric.
-Given any $\text {}{\mathbf {x}} \in \mathbb {R}^{N}$, we have
+Given any $$\text {}{\mathbf {x}} \in \mathbb {R}^{N}$$, we have
 
 $$
 \text {}{\mathbf {x}}^T J_s \text {}{\mathbf {x}} = \beta \text {}{\mathbf {x}}^T \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \text {}{\mathbf {x}}
@@ -69,7 +69,7 @@ $$
 \geqslant 0
 $$
 
-Given any $\text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$, we have
+Given any $$\text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$, we have
 
 $$
 \text {}{\boldsymbol{\xi}}^T J \text {}{\boldsymbol{\xi}} = \text {}{\boldsymbol{\xi}}^T \boldsymbol{X} J_s \boldsymbol{X}^T \text {}{\boldsymbol{\xi}}
@@ -79,29 +79,29 @@ $$
 
 ## Lemma 4
 
-$$\operatorname{lse} \left ( \beta, \text {}{\mathbf {x}} \right )$$ is a convex with respect to $$\text {} {\mathbf {x}}$$ where $\text {} {\mathbf {x}} \in \mathbb {R}^{N}$.
+$$\operatorname{lse} \left ( \beta, \text {}{\mathbf {x}} \right )$$ is a convex with respect to $$\text {} {\mathbf {x}}$$ where $$\text {} {\mathbf {x}} \in \mathbb {R}^{N}$$.
 
 $$\operatorname{lse} \left ( \beta, \boldsymbol{X}^T \boldsymbol{\xi}  \right )$$ is a convex with respect to $$\text {} {\boldsymbol{\xi}}$$ where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
 
 ### Proof
 
-The Jacobian of the $\operatorname{softmax}$ is Hessian of the $\operatorname{lse}$ according to Lemma 1. The Jacobian of the $\operatorname{softmax}$ is positive semi-definite according to Lemma 3. Therefore $\operatorname{lse}$ is a convex.
+The Jacobian of the $$\operatorname{softmax}$$ is Hessian of the $$\operatorname{lse}$$ according to Lemma 1. The Jacobian of the $$\operatorname{softmax}$$ is positive semi-definite according to Lemma 3. Therefore $$\operatorname{lse}$$ is a convex.
 
 ## Definitions
 
 ### Point-to-set Map
 
-A point-to-set map $\mathcal{A}$ from a set $X$ into a set $Y$ is defined as
+A point-to-set map $$\mathcal{A}$$ from a set $$X$$ into a set $Y$ is defined as
 
 $$
 \mathcal{A}: X \to \mathscr{P}(Y)
 $$
 
-which assigns a subset of $Y$ to each point of $X$, where $\mathscr{P}(Y)$ denotes the power set of $Y$.
+which assigns a subset of $Y$ to each point of $$X$$, where $$\mathscr{P}(Y)$$ denotes the power set of $Y$.
 
 ### Closed
 
-Suppose $X$ and $Y$ are two topological spaces. A point-to-set map $\mathcal{A}: X \to \mathscr{P}(Y)$ is said to be closed at $\mathbf x_0 \in X$ if:
+Suppose $$X$$ and $Y$ are two topological spaces. A point-to-set map $$\mathcal{A}: X \to \mathscr{P}(Y)$$ is said to be closed at $$\mathbf x_0 \in X$$ if:
 
 $$
 \begin{align*}
@@ -116,7 +116,7 @@ $$
 \end{align*}
 $$
 
-A point-to-set map $\mathcal{A}$ is said to be closed on $S \subset X$ if it is closed at every point of $S$.
+A point-to-set map $$\mathcal{A}$$ is said to be closed on $S \subset X$$ if it is closed at every point of $S$.
 
 ### Fixed Point
 
@@ -126,20 +126,20 @@ $$
 \mathcal{A}: X \to \mathscr{P}(X)
 $$
 
-is any point $\text {}{\mathbf {x}} \in X$ for which
+is any point $$\text {}{\mathbf {x}} \in X$$ for which
 
 $$
 \mathcal{A} \left( \text {}{\mathbf {x}} \right) = \left \{ \text {}{\mathbf {x}} \right \}
 $$
 
-A generalized fixed point of $\mathcal{A}$ is any point $\text {}{\mathbf {x}} \in X$ for which
+A generalized fixed point of $$\mathcal{A}$$ is any point $$\text {}{\mathbf {x}} \in X$$ for which
 
 $$
 \text {}{\mathbf {x}} \in \mathcal{A} \left( \text {}{\mathbf {x}} \right)
 $$
 
 ### Uniformly Compact
-A point-to-set map $\mathcal{A}: X \to \mathscr{P}(X)$ is said to be uniformly compact on $X$ if there exists a compact set $H$ independent of $\text {}{\mathbf {x}}$ such that:
+A point-to-set map $$\mathcal{A}: X \to \mathscr{P}(X)$$ is said to be uniformly compact on $$X$$ if there exists a compact set $H$ independent of $$\text {}{\mathbf {x}}$$ such that:
 
 $$
 \forall \text {}{\mathbf {x}} \in X, \mathcal{A} \left( \text {}{\mathbf {x}} \right) \subset H
@@ -159,26 +159,26 @@ $$
 \mathcal{A}: X \to \mathscr{P} \left(X \right)
 $$
 
-is said to be monotonic with respect to $\operatorname {E}$ at $$\mathbf {x} \in X$$ if
+is said to be monotonic with respect to $$\operatorname {E}$$ at $$\mathbf {x} \in X$$ if
 
 $$
 \forall \text {}{\mathbf {y}} \in \mathcal{A} \left( \text {}{\mathbf {x}} \right), \operatorname {E} \left( \text {}{\mathbf {y}} \right) \leqslant \operatorname {E} \left( \text {}{\mathbf {x}} \right)
 $$
 
-$\mathcal{A}$ is said to be strictly monotonic with respect to $\operatorname {E}$ at $$\mathbf {x} \in X$$ if
+$$\mathcal{A}$$ is said to be strictly monotonic with respect to $$\operatorname {E}$$ at $$\mathbf {x} \in X$$ if
 
 $$
 \mathcal{A} \left( \text {}{\mathbf {x}} \right) \neq \left \lbrace \text {}  \mathbf {x} \right \rbrace \implies \forall \text {}{\mathbf {y}} \in \mathcal{A} \left( \text {}{\mathbf {x}} \right), \operatorname {E} \left( \text {}{\mathbf {y}} \right) < \operatorname {E} \left( \text {}{\mathbf {x}} \right)
 $$
 
 ### Global Convergence
-Let $X$ be a set and $\text {} {\boldsymbol{\xi}_0} \in X$ a given point. Then an algorithm, $\mathcal{A}$, with initial point $\text {} {\boldsymbol{\xi}_0}$ is a point-to-set map $$\mathcal{A}: X \to \mathscr{P} \left(X \right)$$ which generates a sequence ${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$ via the rule
+Let $$X$$ be a set and $$\text {} {\boldsymbol{\xi}_0} \in X$$ a given point. Then an algorithm, $$\mathcal{A}$$, with initial point $$\text {} {\boldsymbol{\xi}_0}$$ is a point-to-set map $$\mathcal{A}: X \to \mathscr{P} \left(X \right)$$ which generates a sequence $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ via the rule
 
 $$
 \text {}{\boldsymbol{\xi}_{t + 1}} \in \mathcal{A} \left (\text {} {\boldsymbol{\xi}_t} \right ), t = 0, 1, \cdots
 $$
 
-$\mathcal{A}$ is said to be globally convergent if: Given any chosen initial point $\text {} {\boldsymbol{\xi}_0}$, the sequence ${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$ generated by $$\text {} {\boldsymbol{\xi}_{t + 1}} \in \mathcal{A} \left (\text {} {\boldsymbol{\xi}_t} \right ), t = 0, 1, \cdots$$ (or a subsequence) converges to a point for which a necessary condition of optimality holds.
+$$\mathcal{A}$$ is said to be globally convergent if: Given any chosen initial point $$\text {} {\boldsymbol{\xi}_0}$$, the sequence $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ generated by $$\text {} {\boldsymbol{\xi}_{t + 1}} \in \mathcal{A} \left (\text {} {\boldsymbol{\xi}_t} \right ), t = 0, 1, \cdots$$ (or a subsequence) converges to a point for which a necessary condition of optimality holds.
 
 ## Lemma 5
 Consider an energy function $$\operatorname {E}: X \to \mathbb {R}$$:
@@ -227,7 +227,7 @@ $$
 \end{align*}
 $$
 
-Therefore $\mathcal{A}$ is monotonic with respect to $\operatorname {E}$.
+Therefore $$\mathcal{A}$$ is monotonic with respect to $$\operatorname {E}$$.
 
 In addition, if $$\operatorname {E_1}$$ is strictly convex function, and $$\boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_{t}$$, then
 
@@ -254,15 +254,15 @@ $$
 \boldsymbol{X} = \left(\text {} {\mathbf {x}_{1}}, \dots, \text {}{\mathbf {x}_{N}} \right)
 $$
 
-where $\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{d}$. Thus $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}$$.
+where $$\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{d}$$. Thus $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}$$.
 The largest norm of a pattern is:
 
 $$
 M = \max_{i \in \left[ N \right]} \left \lVert \text {} {\mathbf {x}_{i}} \right \rVert _2
 $$
 
-The query or state of the Hopfield Network is $\boldsymbol{\xi} \in \mathbb {R}^{d}$.
-Define energy $\operatorname {E} \left ( \boldsymbol{\xi}  \right )$ for a continuous query or state $\boldsymbol{\xi}$:
+The query or state of the Hopfield Network is $$\boldsymbol{\xi} \in \mathbb {R}^{d}$$.
+Define energy $$\operatorname {E} \left ( \boldsymbol{\xi}  \right )$$ for a continuous query or state $$\boldsymbol{\xi}$$:
 $$
 \operatorname {E} \left ( \boldsymbol{\xi}  \right ) = - \operatorname{lse} \left ( \beta, \boldsymbol{X}^T \boldsymbol{\xi}  \right ) + \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + \beta^{-1} \ln N + \dfrac {1} {2} M^2 \tag {Eq.1}
 $$
@@ -298,16 +298,16 @@ $$
 Hence
 
 $$
-\forall t \geqslant 1, \boldsymbol{\xi}_{t} \in S = \left \{\text {}{\boldsymbol{\xi}} \vert \left \lVert {\text {}{\boldsymbol{\xi}}} \right \rVert _2 \leqslant M \right \} \tag {Theo1.1}
+\forall t \geqslant 1, \boldsymbol{\xi}_{t} \in S = \left \{\text {}{\boldsymbol{\xi}} \middle \vert \left \lVert {\text {}{\boldsymbol{\xi}}} \right \rVert _2 \leqslant M \right \} \tag {Theo1.1}
 $$
 
 which is a convex and compact set.
 
 Obviously $$\dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi}$$ is a strictly convex function.
 
-According to Lemma 4, $\operatorname{lse}$ is a convex function.
+According to Lemma 4, $$\operatorname{lse}$$ is a convex function.
 
-Hence the energy function $\operatorname {E} \left ( \boldsymbol{\xi}  \right )$ is the difference of a strictly convex function $\operatorname {E_1} \left ( \boldsymbol{\xi}  \right )$ and a convex function $\operatorname {E_2} \left ( \boldsymbol{\xi}  \right )$:
+Hence the energy function $$\operatorname {E} \left ( \boldsymbol{\xi}  \right )$$ is the difference of a strictly convex function $$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right )$$ and a convex function $$\operatorname {E_2} \left ( \boldsymbol{\xi}  \right )$:
 
 $$
 \begin{align*}
@@ -317,7 +317,7 @@ $$
 \end{align*} \tag {Theo1.2}
 $$
 
-where $C_1$ does not depend on $\boldsymbol{\xi}$.
+where $C_1$ does not depend on $$\boldsymbol{\xi}$$.
 
 Define minimization problem:
 
@@ -350,12 +350,12 @@ $$
 $$
 
 where $$\boldsymbol{\xi}^{\ast} \in S$$ is a limit point.
-Continuity of $\operatorname {E}$ provides
+Continuity of $$\operatorname {E}$$ provides
 $$
 \operatorname {E}\left(\boldsymbol{\xi}_{t_k}\right) \to \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right), \text{ as } k \to \infty \tag {Theo1.3}
 $$
 
-According to Lemma 5, $\mathcal{A}$ is monotonic with respect to $\operatorname {E}$. So that
+According to Lemma 5, $$\mathcal{A}$$ is monotonic with respect to $$\operatorname {E}$$. So that
 
 $$
 \forall t \geqslant 0, \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \geqslant \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right)\tag {Theo1.4}
@@ -367,7 +367,7 @@ $$
 \operatorname {E}\left(\boldsymbol{\xi}_{t_{\varepsilon_{1}}}\right) < \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) + \varepsilon_{1}
 $$
 
-$\mathcal{A}$ is monotonic with respect to $\operatorname {E}$, then
+$$\mathcal{A}$$ is monotonic with respect to $$\operatorname {E}$$, then
 
 $$
 \forall t > t_{\varepsilon_{1}}, \operatorname {E}\left(\boldsymbol{\xi}_{t}\right) \leqslant \operatorname {E}\left(\boldsymbol{\xi}_{t_{\varepsilon_{1}}}\right) < \operatorname {E}\left(\boldsymbol{\xi}^{\ast}\right) + \varepsilon_{1}
@@ -392,7 +392,7 @@ $$
 \mathcal{A} \left ( \mathbf {x} \right ) = \underset{\mathbf {y} \in Y} {\operatorname{argmin}} h \left(\mathbf {x}, \mathbf {y} \right)
 $$
 
-If $$\mathcal{A}$$ is nonempty at each $\mathbf {x} \in X$, then $$\mathcal{A}$$ is closed.
+If $$\mathcal{A}$$ is nonempty at each $$\mathbf {x} \in X$$, then $$\mathcal{A}$$ is closed.
 
 ### Proof
 Suppose
@@ -412,7 +412,7 @@ $$
 
 Since $$X$$ and $$Y$$ are closed sets, $$\left(\mathbf {x}_{0}, \mathbf {y}_{0} \right) \in X \times Y$$.
 
-By continuity of ${h}$
+By continuity of $${h}$
 
 $$
 \begin{align*}
@@ -467,7 +467,7 @@ $$
 \left \lVert \boldsymbol{\xi}_{t + 1} - \boldsymbol{\xi}_{t} \right \rVert _2 \to 0, \text{ as } t \to \infty
 $$
 
-And either $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ converges, or, in the other case, the set of limit points of $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ is a connected and compact subset of $$\mathcal{L} \left ( \operatorname {E}^{\ast} \right )$$, where $$\mathcal{L} \left ( a \right ) = \left \lbrace \boldsymbol{\xi} \in \mathcal{L} \vert \operatorname {E} \left ( \text {} {\boldsymbol{\xi}} \right ) = a \right \rbrace$$ and $$\mathcal{L}$$ is the set of stationary points of the iteration (Eq.2). If $$\mathcal{L} \left ( \operatorname {E}^{\ast} \right )$$ is finite, then any sequence $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ generated by the iteration (Eq.2) converges to some $$\boldsymbol{\xi}^{\ast} \in \mathcal{L} \left ( \operatorname {E}^{\ast} \right )$$.
+And either $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ converges, or, in the other case, the set of limit points of $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ is a connected and compact subset of $$\mathcal{L} \left ( \operatorname {E}^{\ast} \right )$$, where $$\mathcal{L} \left ( a \right ) = \left \lbrace \boldsymbol{\xi} \in \mathcal{L} \middle \vert \operatorname {E} \left ( \text {} {\boldsymbol{\xi}} \right ) = a \right \rbrace$$ and $$\mathcal{L}$$ is the set of stationary points of the iteration (Eq.2). If $$\mathcal{L} \left ( \operatorname {E}^{\ast} \right )$$ is finite, then any sequence $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ generated by the iteration (Eq.2) converges to some $$\boldsymbol{\xi}^{\ast} \in \mathcal{L} \left ( \operatorname {E}^{\ast} \right )$$.
 
 ### Proof
 
@@ -477,7 +477,7 @@ $$
 g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right ) = \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right ) \tag {Theo2.1}
 $$
 
-where $$\operatorname {E_1}, \operatorname {E_2}$$ are defined by (Theo1.2). $$C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ does not depend on $\boldsymbol{\xi}$.
+where $$\operatorname {E_1}, \operatorname {E_2}$$ are defined by (Theo1.2). $$C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ does not depend on $$\boldsymbol{\xi}$$.
 
 Let
 
@@ -485,7 +485,7 @@ $$
 \mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \underset{\boldsymbol{\xi} \in S} {\operatorname{argmin}} g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) \tag {Theo2.5}
 $$
 
-where $$S$$ is a compact set defined in (Theo1.1). Then $\mathcal{A}$ is uniformly compact on $S$.
+where $$S$$ is a compact set defined in (Theo1.1). Then $$\mathcal{A}$$ is uniformly compact on $S$.
 
 $$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) = \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + C_1$$ is continuous, so given any $$\boldsymbol{\xi}_t$$, $$g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)$$ is continuous on the compact set $$S$$, by the Weierstrass theorem, it has minimum on $$S$$. So $$\mathcal{A} \left ( \boldsymbol{\xi} \right )$$ is nonempty at any $$\boldsymbol{\xi}$$.
 
@@ -505,7 +505,7 @@ $$
 
 According to Lemma 6, $$\mathcal{A}$$ is closed on $$S$$.
 
-Using Lemma 4 $\operatorname {E_2}$ is convex , the first order characterization of convexity holds:
+Using Lemma 4 $$\operatorname {E_2}$$ is convex , the first order characterization of convexity holds:
 $$
 \operatorname {E_2} \left ( \boldsymbol{\xi}  \right ) \geqslant \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) + \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \left ( \boldsymbol{\xi} - \boldsymbol{\xi}_{t} \right )
 $$
@@ -522,8 +522,10 @@ $$
 
 $$\operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) = \dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi} + C_1$$ is strictly convex with respect to $$\text {} {\boldsymbol{\xi}}$$.
 $$- \left ( \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) \right )^T \boldsymbol{\xi} + C_2 \left ( \boldsymbol{\xi}_{t}  \right )$$ is both concave and convex with respect to $$\text {} {\boldsymbol{\xi}}$$.
-Therefore $g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)$ is strictly convex with respect to $$\text {} {\boldsymbol{\xi}}$$ (if the domain is convex) and there exist only one minimum, which is the global minimum.
+Therefore $$g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)$$ is strictly convex with respect to $$\text {} {\boldsymbol{\xi}}$$ (if the domain is convex) and there exist only one minimum, which is the global minimum.
+
 Let
+
 $$
 \dfrac {\partial g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right)} {\partial {\boldsymbol{\xi}}} = \nabla _{\boldsymbol{\xi}} \operatorname {E_1} \left ( \boldsymbol{\xi} \right ) - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \nabla _{\boldsymbol{\xi}} \operatorname {E_2} \left ( \boldsymbol{\xi}_{t}  \right ) = \boldsymbol{\xi} - \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) = \text {} {\mathbf {0}} \tag {Theo2.8}
 $$
@@ -569,7 +571,7 @@ $$
 \mathcal{A} \left( \text {}{\boldsymbol{\xi}_{t}} \right) \neq \left \lbrace \text {}  \boldsymbol{\xi}_{t} \right \rbrace \implies \forall \text {}{\boldsymbol{\xi}_{t + 1}} \in \mathcal{A} \left( \text {}{\boldsymbol{\xi}_{t}} \right), \operatorname {E} \left( \text {}{\boldsymbol{\xi}_{t + 1}} \right) < \operatorname {E} \left( \text {}{\boldsymbol{\xi}_{t}} \right)
 $$
 
-Therefore point-set-map $\mathcal{A}$ is strictly monotonic with respect to $\operatorname {E}$.
+Therefore point-set-map $$\mathcal{A}$$ is strictly monotonic with respect to $$\operatorname {E}$$.
 
 Given any convergent subsequence
 
@@ -619,7 +621,7 @@ $$
 \boldsymbol{\xi}^{\ast} \in \mathcal{A} \left ( \boldsymbol{\xi}^{\ast} \right )
 $$
 
-In addition, $\mathcal{A}$ is strictly monotonic with respect to $\operatorname {E}$, so that
+In addition, $$\mathcal{A}$$ is strictly monotonic with respect to $$\operatorname {E}$$, so that
 
 $$
 \mathcal{A} \left ( \boldsymbol{\xi}^{\ast} \right ) = \left \lbrace \boldsymbol{\xi}^{\ast} \right \rbrace
@@ -781,43 +783,86 @@ According to (Theo2.5), all points $$\boldsymbol{\xi}_{t}, t \geqslant 1$$ are i
 If
 
 $$
-\exists \boldsymbol{\xi}^{*}, \boldsymbol{\xi}^{*}_{k} \to \boldsymbol{\xi}^{*} \text{ as } k \to \infty \tag {Theo2.19}
+\exists \boldsymbol{\xi}^{\ast}, \boldsymbol{\xi}^{\ast}_{k} \to \boldsymbol{\xi}^{\ast} \text{ as } k \to \infty \tag {Theo2.19}
 $$
 
-where $${\left \lbrace \boldsymbol{\xi}^{*}_{k} \right \rbrace} _{k=1} ^{\infty}$$ is a subset of $$S_{lim}$$.
+where $${\left \lbrace \boldsymbol{\xi}^{\ast}_{k} \right \rbrace} _{k=1} ^{\infty}$$ is a subset of $$S_{lim}$$.
 
 Using the definition of limit,
 
 $$
-\forall k \geqslant 1, \exists \boldsymbol{\xi}_{t_k} \in {\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}, \left \lVert \boldsymbol{\xi}_{t_k} -  \boldsymbol{\xi}^{*}_{k} \right \rVert _2 < \dfrac {1} {k}
+\forall k \geqslant 1, \exists \boldsymbol{\xi}_{t_k} \in {\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}, \left \lVert \boldsymbol{\xi}_{t_k} -  \boldsymbol{\xi}^{\ast}_{k} \right \rVert _2 < \dfrac {1} {k}
 $$
 
 Thus
 
 $$
-\left \lVert \boldsymbol{\xi}_{t_k} -  \boldsymbol{\xi}^{*}_{k} \right \rVert _2 \to 0, k \to \infty
+\left \lVert \boldsymbol{\xi}_{t_k} -  \boldsymbol{\xi}^{\ast}_{k} \right \rVert _2 \to 0, k \to \infty
 $$
 
 That is
 
 $$
-\boldsymbol{\xi}_{t_k} - \boldsymbol{\xi}^{*}_{k} \to \mathbf {0}, k \to \infty
+\boldsymbol{\xi}_{t_k} - \boldsymbol{\xi}^{\ast}_{k} \to \mathbf {0}, k \to \infty
 $$
 
 Then
 
 $$
-\boldsymbol{\xi}_{t_k} = \left(\boldsymbol{\xi}_{t_k} - \boldsymbol{\xi}^{*}_{k} \right) + \boldsymbol{\xi}^{*}_{k} \to \boldsymbol{\xi}^{*}, k \to \infty
+\boldsymbol{\xi}_{t_k} = \left(\boldsymbol{\xi}_{t_k} - \boldsymbol{\xi}^{\ast}_{k} \right) + \boldsymbol{\xi}^{\ast}_{k} \to \boldsymbol{\xi}^{\ast}, k \to \infty
 $$
 
 Hence
 
 $$
-\boldsymbol{\xi}^{*} \in S_{lim}
+\boldsymbol{\xi}^{\ast} \in S_lim
 $$
 
 Therefore $$S_{lim}$$ is closed. It is also bounded, so it is a compact set.
 
-If $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ does not converge, $$S_{lim}$$ must contains at least two points.
+If $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ does not converge, $$S_{lim}$$ must contain at least two points.
+
+Suppose $$S_{lim}$$ is not connected. Then it can be decomposed into the union of two nonempty closed sets of points without common points.
+
+Suppose
+
+$$
+S_{lim} = S^{1}_{lim} \cup S^{2}_{lim} \tag {Theo2.20}
+$$
+
+where $$S^{1}_{lim} \cup S^{2}_{lim}$$ are both nonempty, closed and:
+
+$$
+S^{1}_{lim} \cap S^{2}_{lim} = \emptyset \tag {Theo2.22}
+$$
+
+Let
+
+$$
+d = \inf \left \lbrace { \left \lVert \boldsymbol{\xi}^{1}_{lim} -  \boldsymbol{\xi}^{1}_{lim} \right \rVert _2 } \middle \vert \boldsymbol{\xi}^{1}_{lim} \in S^{1}_{lim}, \boldsymbol{\xi}^{2}_{lim} \in S^{2}_{lim} \right \rbrace
+$$
+
+If $$d = 0$$, then there is a sequence $${\left \lbrace \boldsymbol{\xi}^{1}_{lim_{k}} \right \rbrace} _{k=1} ^{\infty}$$ that belongs to $$S^{1}_{lim}$$, and a sequence $${\left \lbrace \boldsymbol{\xi}^{2}_{lim_{k}} \right \rbrace} _{k=1} ^{\infty}$$ that belongs to $$S^{2}_{lim}$$, and
+
+$$
+\boldsymbol{\xi}^{1}_{lim_{k}} - \boldsymbol{\xi}^{2}_{lim_{k}} \to \mathbf {0}, k \to \infty \tag {Theo2.21}
+$$
+
+Because $$S^{1}_{lim}$$ and $$S^{2}_{lim}$$ are closed, each of the sequences  $${\left \lbrace \boldsymbol{\xi}^{1}_{lim_{k}} \right \rbrace} _{k=1} ^{\infty}$$ and $${\left \lbrace \boldsymbol{\xi}^{2}_{lim_{k}} \right \rbrace} _{k=1} ^{\infty}$$ has a convergent subsequence. Using (Theo2.21), two subsequences converge to the same limit point. Then this limit point belongs to both closed set $$S^{1}_{lim}$$ and $$S^{2}_{lim}$$, which is a contradiction with (Theo2.22). Thus $$d > 0$$.
+
+Because $$S^{1}_{lim}$$ and $$S^{2}_{lim}$$ are nonempty, there exists two limit points $$\boldsymbol{\xi}^{1}_{lim} \in S^{1}_{lim}, \boldsymbol{\xi}^{2}_{lim} \in S^{2}_{lim}$$.
+
+Suppose
+
+$$
+\begin{align*}
+& \boldsymbol{\xi}^{1}_{t_k} \to \boldsymbol{\xi}^{1}_{lim}, \text{ as } k \to \infty \\
+& \boldsymbol{\xi}^{2}_{t_k} \to \boldsymbol{\xi}^{2}_{lim}, \text{ as } k \to \infty
+\end{align*}
+$$
+
+where $$\left \lbrace \boldsymbol{\xi}^{1}_{t_k} \right \rbrace$$ and $$\left \lbrace \boldsymbol{\xi}^{2}_{t_k} \right \rbrace$$ are subsequences of $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$.
+
+(Theo2.18)
 
 Therefore $$S_{lim}$$ is connected.
