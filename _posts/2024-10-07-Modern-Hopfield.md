@@ -4,7 +4,7 @@ title: Global Convergence of Modern Hopfield Network
 ---
 
 ## Introduction
-This post provide comprehensive deduction of :
+This post provides comprehensive deduction of :
 
 1. Theorem 1 Global Convergence: Energy.
 2. Theorem 2 Global Convergence: Stationary Points.
