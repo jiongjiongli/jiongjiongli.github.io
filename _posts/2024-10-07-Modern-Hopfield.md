@@ -308,6 +308,7 @@ Obviously $$\dfrac {1} {2} \boldsymbol{\xi}^T \boldsymbol{\xi}$$ is a strictly c
 According to Lemma 4, $\operatorname{lse}$ is a convex function.
 
 Hence the energy function $\operatorname {E} \left ( \boldsymbol{\xi}  \right )$ is the difference of a strictly convex function $\operatorname {E_1} \left ( \boldsymbol{\xi}  \right )$ and a convex function $\operatorname {E_2} \left ( \boldsymbol{\xi}  \right )$:
+
 $$
 \begin{align*}
 \operatorname {E} \left ( \boldsymbol{\xi}  \right ) &= \operatorname {E_1} \left ( \boldsymbol{\xi}  \right ) - \operatorname {E_2} \left ( \boldsymbol{\xi}  \right ) \\
@@ -610,7 +611,7 @@ $$
 
 According to theorem 1, $$\operatorname {E} \left ( \boldsymbol{\xi}^{\ast\ast} \right ) = \operatorname {E} \left ( \boldsymbol{\xi}^{\ast} \right )$$.
 
-If $$\boldsymbol{\xi}^{\ast} \neq \boldsymbol{\xi}^{\ast\ast}$$, using (Theo2.6), $$\operatorname {E} \left ( \boldsymbol{\xi}^{\ast\ast} \right ) \lt \operatorname {E} \left ( \boldsymbol{\xi}^{\ast} \right )$$. But according to theorem 1, $$\operatorname {E} \left ( \boldsymbol{\xi}^{\ast\ast} \right ) = \operatorname {E} \left ( \boldsymbol{\xi}^{\ast} \right )$$. A contradiction. Therefore $$\boldsymbol{\xi}^{\ast} = \boldsymbol{\xi}^{\ast\ast}$$.
+If $$\boldsymbol{\xi}^{\ast} \neq \boldsymbol{\xi}^{\ast\ast}$$, using (Theo2.6), $$\operatorname {E} \left ( \boldsymbol{\xi}^{\ast\ast} \right ) \lt \operatorname {E} \left ( \boldsymbol{\xi}^{\ast} \right )$$. A contradiction. Therefore $$\boldsymbol{\xi}^{\ast} = \boldsymbol{\xi}^{\ast\ast}$$.
 
 Hence
 
@@ -701,27 +702,122 @@ $$
 such that
 
 $$
-\left \lVert \boldsymbol{\xi}_{t_k + 1} - \boldsymbol{\xi}_{t_k} \right \rVert _2 \geqslant \varepsilon_{3}, \forall k \geqslant 1
+\left \lVert \boldsymbol{\xi}_{t_k + 1} - \boldsymbol{\xi}_{t_k} \right \rVert _2 \geqslant \varepsilon_{3}, \forall k \geqslant 1 \tag {Theo2.17}
 $$
 
 According to (Theo2.5), all points $$\boldsymbol{\xi}_{t_k}, k \geqslant 1$$ are in the compact set $S$. Hence it must have a convergent subsequence
 
 $$
-\boldsymbol{\xi}_{t_{k_l}} \to \boldsymbol{\xi}^{\ast}, \text{ as } l \to \infty
+\boldsymbol{\xi}_{t_{k_l}} \to \boldsymbol{\xi}^{\ast}, \text{ as } l \to \infty \tag {Theo2.12}
 $$
 
 where $$\boldsymbol{\xi}^{\ast} \in S$$ is a limit point.
 
-consider subsequence:
+Consider subsequence:
 
 $$
-{\left \lbrace \boldsymbol{\xi}_{t_k + 1} \right \rbrace} _{k=1} ^{\infty}
+{\left \lbrace \boldsymbol{\xi}_{t_{k_l} + 1} \right \rbrace} _{k=1} ^{\infty}
 $$
 
-According to (Theo2.5), all points $$\boldsymbol{\xi}_{t_k + 1}, k \geqslant 1$$ are in the compact set $S$. Hence it must have a convergent subsequence
+It must also have a convergent subsequence
 
 $$
-\boldsymbol{\xi}_{t_{k_l} + 1} \to \boldsymbol{\xi}^{\ast\ast}, \text{ as } l \to \infty
+\boldsymbol{\xi}_{t_{k_{l_m}} + 1} \to \boldsymbol{\xi}^{\ast\ast}, \text{ as } m \to \infty \tag {Theo2.13}
 $$
 
 where $$\boldsymbol{\xi}^{\ast\ast} \in S$$ is a limit point.
+
+Using (Theo2.12)
+
+$$
+\boldsymbol{\xi}_{t_{k_{l_m}}} \to \boldsymbol{\xi}^{\ast}, \text{ as } l \to \infty \tag {Theo2.14}
+$$
+
+Since
+
+$$
+\boldsymbol{\xi}_{t_{k_{l_m}} + 1} \in \mathcal{A} \left ( \boldsymbol{\xi}_{t_{k_{l_m}}} \right )
+$$
+
+And $$\mathcal{A}$$ is closed on $$S$$, thus
+
+$$
+\boldsymbol{\xi}^{\ast\ast} \in \mathcal{A} \left ( \boldsymbol{\xi}^{\ast} \right )
+$$
+
+According to theorem 1, $$\operatorname {E} \left ( \boldsymbol{\xi}^{\ast\ast} \right ) = \operatorname {E} \left ( \boldsymbol{\xi}^{\ast} \right )$$.
+
+If $$\boldsymbol{\xi}^{\ast} \neq \boldsymbol{\xi}^{\ast\ast}$$, using (Theo2.6), $$\operatorname {E} \left ( \boldsymbol{\xi}^{\ast\ast} \right ) \lt \operatorname {E} \left ( \boldsymbol{\xi}^{\ast} \right )$$. A contradiction. Therefore $$\boldsymbol{\xi}^{\ast} = \boldsymbol{\xi}^{\ast\ast}$$.
+
+Using (Theo2.13)
+
+$$
+\boldsymbol{\xi}_{t_{k_{l_m}} + 1} \to \boldsymbol{\xi}^{\ast}, \text{ as } m \to \infty \tag {Theo2.15}
+$$
+
+Using (Theo2.14), (Theo2.15)
+
+$$
+\begin{align*}
+& \left \lVert \boldsymbol{\xi}_{t_{k_{l_m}} + 1} - \boldsymbol{\xi}_{t_{k_{l_m}}} \right \rVert _2 \\
+= & \left \lVert \left(\boldsymbol{\xi}_{t_{k_{l_m}} + 1} - \boldsymbol{\xi}^{\ast}\right) - \left(\boldsymbol{\xi}_{t_{k_{l_m}}} - \boldsymbol{\xi}^{\ast}\right) \right \rVert _2 \\
+\leqslant & \left \lVert \boldsymbol{\xi}_{t_{k_{l_m}} + 1} - \boldsymbol{\xi}^{\ast} \right \rVert _2 + \left \lVert \boldsymbol{\xi}_{t_{k_{l_m}}} - \boldsymbol{\xi}^{\ast} \right \rVert _2 \\
+\to & 0, \text{ as } m \to \infty \tag {Theo2.16}
+\end{align*}
+$$
+
+which is in contradiction with (Theo2.17).
+
+Therefore
+
+$$
+\left \lVert \boldsymbol{\xi}_{t + 1} - \boldsymbol{\xi}_{t} \right \rVert _2 \to 0, \text{ as } t \to \infty \tag {Theo2.18}
+$$
+
+Let $$S_{lim}$$ denote the set of limit points of $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$.
+
+According to (Theo2.5), all points $$\boldsymbol{\xi}_{t}, t \geqslant 1$$ are in the compact set $S$. Thus $$S_{lim}$$ is not empty and bounded.
+
+If
+
+$$
+\exists \boldsymbol{\xi}^{*}, \boldsymbol{\xi}^{*}_{k} \to \boldsymbol{\xi}^{*} \text{ as } k \to \infty \tag {Theo2.19}
+$$
+
+where $${\left \lbrace \boldsymbol{\xi}^{*}_{k} \right \rbrace} _{k=1} ^{\infty}$$ is a subset of $$S_{lim}$$.
+
+Using the definition of limit,
+
+$$
+\forall k \geqslant 1, \exists \boldsymbol{\xi}_{t_k} \in {\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}, \left \lVert \boldsymbol{\xi}_{t_k} -  \boldsymbol{\xi}^{*}_{k} \right \rVert _2 < \dfrac {1} {k}
+$$
+
+Thus
+
+$$
+\left \lVert \boldsymbol{\xi}_{t_k} -  \boldsymbol{\xi}^{*}_{k} \right \rVert _2 \to 0, k \to \infty
+$$
+
+That is
+
+$$
+\boldsymbol{\xi}_{t_k} - \boldsymbol{\xi}^{*}_{k} \to \mathbf {0}, k \to \infty
+$$
+
+Then
+
+$$
+\boldsymbol{\xi}_{t_k} = \left(\boldsymbol{\xi}_{t_k} - \boldsymbol{\xi}^{*}_{k} \right) + \boldsymbol{\xi}^{*}_{k} \to \boldsymbol{\xi}^{*}, k \to \infty
+$$
+
+Hence
+
+$$
+\boldsymbol{\xi}^{*} \in S_{lim}
+$$
+
+Therefore $$S_{lim}$$ is closed. It is also bounded, so it is a compact set.
+
+If $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$ does not converge, $$S_{lim}$$ must contains at least two points.
+
+Therefore $$S_{lim}$$ is connected.
