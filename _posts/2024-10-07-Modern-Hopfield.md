@@ -8,7 +8,7 @@ title: Global Convergence of Modern Hopfield Network
 
 2. Let $$\beta > 0, \beta \in \mathbb {R}$$
 
-3. Let $$\left[ N \right] = \left\{1, \cdots, N \right\}$$
+3. Let $$\left[ N \right] = \left\lbrace1, \cdots, N \right\rbrace$$
 
 ## Softmax Function
 
@@ -112,7 +112,7 @@ $$
         \text {} {\mathbf {x}_{t}} \in X \\
         \text {} {\mathbf {y}_{t}} \in \mathcal{A} \left(\text {} {\mathbf {x}_{t}} \right)
     \end{array}
-    \right\} \implies \text {} {\mathbf {y}_{0}} \in \mathcal{A} \left(\text {} {\mathbf x_0} \right)
+    \right\rbrace \implies \text {} {\mathbf {y}_{0}} \in \mathcal{A} \left(\text {} {\mathbf x_0} \right)
 \end{align*}
 $$
 
@@ -129,7 +129,7 @@ $$
 is any point $$\text {}{\mathbf {x}} \in X$$ for which
 
 $$
-\mathcal{A} \left( \text {}{\mathbf {x}} \right) = \left \{ \text {}{\mathbf {x}} \right \}
+\mathcal{A} \left( \text {}{\mathbf {x}} \right) = \left\lbrace \text {}{\mathbf {x}} \right\rbrace
 $$
 
 A generalized fixed point of $$\mathcal{A}$$ is any point $$\text {}{\mathbf {x}} \in X$$ for which
@@ -220,7 +220,7 @@ $$
         \operatorname {E_2} \left(\boldsymbol{\xi}_{t + 1}\right) \geqslant \operatorname {E_2} \left(\boldsymbol{\xi}_{t}\right) + {\left(\nabla \operatorname {E_2} \left(\boldsymbol{\xi}_{t}\right)\right)}^T \left(\boldsymbol{\xi}_{t + 1} - \boldsymbol{\xi}_{t}\right) \\
         \nabla \operatorname {E_1} \left(\boldsymbol{\xi}_{t + 1}\right) = \nabla \operatorname {E_2} \left(\boldsymbol{\xi}_{t}\right)
     \end{array}
-    \right\} \\
+    \right\rbrace \\
     & \implies \operatorname {E_1} \left(\boldsymbol{\xi}_{t}\right) + \operatorname {E_2} \left(\boldsymbol{\xi}_{t + 1}\right) \geqslant \operatorname {E_1} \left(\boldsymbol{\xi}_{t + 1}\right) + \operatorname {E_2} \left(\boldsymbol{\xi}_{t}\right) \\
     & \implies \operatorname {E_1} \left(\boldsymbol{\xi}_{t + 1}\right) - \operatorname {E_2} \left(\boldsymbol{\xi}_{t + 1}\right) \leqslant \operatorname {E_1} \left(\boldsymbol{\xi}_{t}\right) - \operatorname {E_2} \left(\boldsymbol{\xi}_{t}\right) \\
     & \implies \operatorname {E} \left(\boldsymbol{\xi}_{t + 1}\right) \leqslant \operatorname {E} \left(\boldsymbol{\xi}_{t}\right)
@@ -240,7 +240,7 @@ $$
         \operatorname {E_2} \left(\boldsymbol{\xi}_{t + 1}\right) \geqslant \operatorname {E_2} \left(\boldsymbol{\xi}_{t}\right) + {\left(\nabla \operatorname {E_2} \left(\boldsymbol{\xi}_{t}\right)\right)}^T \left(\boldsymbol{\xi}_{t + 1} - \boldsymbol{\xi}_{t}\right) \\
         \nabla \operatorname {E_1} \left(\boldsymbol{\xi}_{t + 1}\right) = \nabla \operatorname {E_2} \left(\boldsymbol{\xi}_{t}\right)
     \end{array}
-    \right\} \\
+    \right\rbrace \\
     & \implies \operatorname {E_1} \left(\boldsymbol{\xi}_{t}\right) + \operatorname {E_2} \left(\boldsymbol{\xi}_{t + 1}\right) > \operatorname {E_1} \left(\boldsymbol{\xi}_{t + 1}\right) + \operatorname {E_2} \left(\boldsymbol{\xi}_{t}\right) \\
     & \implies \operatorname {E_1} \left(\boldsymbol{\xi}_{t + 1}\right) - \operatorname {E_2} \left(\boldsymbol{\xi}_{t + 1}\right) < \operatorname {E_1} \left(\boldsymbol{\xi}_{t}\right) - \operatorname {E_2} \left(\boldsymbol{\xi}_{t}\right) \\
     & \implies \operatorname {E} \left(\boldsymbol{\xi}_{t + 1}\right) < \operatorname {E} \left(\boldsymbol{\xi}_{t}\right)
@@ -298,7 +298,7 @@ $$
 Hence
 
 $$
-\forall t \geqslant 1, \boldsymbol{\xi}_{t} \in S = \left \{\text {}{\boldsymbol{\xi}} \middle \vert \left \lVert {\text {}{\boldsymbol{\xi}}} \right \rVert _2 \leqslant M \right \} \tag {Theo1.1}
+\forall t \geqslant 1, \boldsymbol{\xi}_{t} \in S = \left\lbrace\text {}{\boldsymbol{\xi}} \middle \vert \left \lVert {\text {}{\boldsymbol{\xi}}} \right \rVert _2 \leqslant M \right\rbrace \tag {Theo1.1}
 $$
 
 which is a convex and compact set.
@@ -340,7 +340,7 @@ $$
 Let
 
 $$
-\mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \left \{ \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}_{t}} \right) \right \}
+\mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \left\lbrace \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}_{t}} \right) \right\rbrace
 $$
 
 According to (Theo1.1), all points $$\boldsymbol{\xi}_t, t \geqslant 1$$ are in a compact set $S$. Hence there must be a convergent subsequence
@@ -815,7 +815,7 @@ $$
 Hence
 
 $$
-\boldsymbol{\xi}^{\ast} \in S_lim
+\boldsymbol{\xi}^{\ast} \in S_{lim}
 $$
 
 Therefore $$S_{lim}$$ is closed. It is also bounded, so it is a compact set.
@@ -839,7 +839,7 @@ $$
 Let
 
 $$
-d = \inf \left \lbrace { \left \lVert \boldsymbol{\xi}^{1}_{lim} -  \boldsymbol{\xi}^{1}_{lim} \right \rVert _2 } \middle \vert \boldsymbol{\xi}^{1}_{lim} \in S^{1}_{lim}, \boldsymbol{\xi}^{2}_{lim} \in S^{2}_{lim} \right \rbrace
+d = \inf \left \lbrace { \left \lVert \boldsymbol{\xi}^{1}_{lim} -  \boldsymbol{\xi}^{2}_{lim} \right \rVert _2 } \middle \vert \boldsymbol{\xi}^{1}_{lim} \in S^{1}_{lim}, \boldsymbol{\xi}^{2}_{lim} \in S^{2}_{lim} \right \rbrace \tag {Theo2.23}
 $$
 
 If $$d = 0$$, then there is a sequence $${\left \lbrace \boldsymbol{\xi}^{1}_{lim_{k}} \right \rbrace} _{k=1} ^{\infty}$$ that belongs to $$S^{1}_{lim}$$, and a sequence $${\left \lbrace \boldsymbol{\xi}^{2}_{lim_{k}} \right \rbrace} _{k=1} ^{\infty}$$ that belongs to $$S^{2}_{lim}$$, and
@@ -850,19 +850,102 @@ $$
 
 Because $$S^{1}_{lim}$$ and $$S^{2}_{lim}$$ are closed, each of the sequences  $${\left \lbrace \boldsymbol{\xi}^{1}_{lim_{k}} \right \rbrace} _{k=1} ^{\infty}$$ and $${\left \lbrace \boldsymbol{\xi}^{2}_{lim_{k}} \right \rbrace} _{k=1} ^{\infty}$$ has a convergent subsequence. Using (Theo2.21), two subsequences converge to the same limit point. Then this limit point belongs to both closed set $$S^{1}_{lim}$$ and $$S^{2}_{lim}$$, which is a contradiction with (Theo2.22). Thus $$d > 0$$.
 
-Because $$S^{1}_{lim}$$ and $$S^{2}_{lim}$$ are nonempty, there exists two limit points $$\boldsymbol{\xi}^{1}_{lim} \in S^{1}_{lim}, \boldsymbol{\xi}^{2}_{lim} \in S^{2}_{lim}$$.
+Because $$S^{1}_{lim}$$ and $$S^{2}_{lim}$$ are nonempty, there exists two limit points $$\boldsymbol{\xi}^{\ast 1}_{lim} \in S^{1}_{lim}, \boldsymbol{\xi}^{\ast 2}_{lim} \in S^{2}_{lim}$$.
 
 Suppose
 
 $$
 \begin{align*}
-& \boldsymbol{\xi}^{1}_{t_k} \to \boldsymbol{\xi}^{1}_{lim}, \text{ as } k \to \infty \\
-& \boldsymbol{\xi}^{2}_{t_k} \to \boldsymbol{\xi}^{2}_{lim}, \text{ as } k \to \infty
-\end{align*}
+& \boldsymbol{\xi}^{1}_{t_k} \to \boldsymbol{\xi}^{\ast 1}_{lim}, \text{ as } k \to \infty \\
+& \boldsymbol{\xi}^{2}_{t_k} \to \boldsymbol{\xi}^{\ast 2}_{lim}, \text{ as } k \to \infty
+\end{align*} \tag {Theo2.24}
 $$
 
-where $$\left \lbrace \boldsymbol{\xi}^{1}_{t_k} \right \rbrace$$ and $$\left \lbrace \boldsymbol{\xi}^{2}_{t_k} \right \rbrace$$ are subsequences of $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$.
+where $${Q}_1 = \left \lbrace \boldsymbol{\xi}^{1}_{t_k} \right \rbrace _{k=0} ^{\infty}$$ and $${Q}_2 = \left \lbrace \boldsymbol{\xi}^{2}_{t_k} \right \rbrace _{k=0} ^{\infty}$$ are subsequences of $${\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}$$.
 
-(Theo2.18)
+Using (Theo2.18)
 
-Therefore $$S_{lim}$$ is connected.
+$$
+\exists t_d, \forall t > t_d, \left \lVert \boldsymbol{\xi}_{t + 1} - \boldsymbol{\xi}_{t} \right \rVert _2 < \dfrac {d} {3} \tag {Theo2.25}
+$$
+
+Let
+
+$$
+\begin{align*}
+d^1 \left( \boldsymbol{\xi} \right) = \inf \left \lbrace { \left \lVert \boldsymbol{\xi} - \boldsymbol{\xi}^{1}_{lim} \right \rVert _2 } \middle \vert \boldsymbol{\xi} \in {\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}, \boldsymbol{\xi}^{1}_{lim} \in S^{1}_{lim} \right \rbrace \\
+d^2 \left( \boldsymbol{\xi} \right) = \inf \left \lbrace { \left \lVert \boldsymbol{\xi} - \boldsymbol{\xi}^{2}_{lim} \right \rVert _2 } \middle \vert \boldsymbol{\xi} \in {\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}, \boldsymbol{\xi}^{2}_{lim} \in S^{1}_{lim} \right \rbrace
+\end{align*} \tag {Theo2.26}
+$$
+
+Using (Theo2.23), (Theo2.26)
+
+$$
+\forall \boldsymbol{\xi} \in {\left \lbrace \text {} {\boldsymbol{\xi}_t} \right \rbrace} _{t=0} ^{\infty}, d^1 \left( \boldsymbol{\xi} \right) + d^2 \left( \boldsymbol{\xi} \right) \geqslant d \tag {Theo2.27}
+$$
+
+Using (Theo2.24)
+
+$$
+\exists m > t_d, d^1\left( \boldsymbol{\xi}_{m} \right) < \dfrac {d} {3} \\
+\exists n >   m, d^2 \left( \boldsymbol{\xi}_{n} \right) < \dfrac {d} {3}
+\tag {Theo2.28}
+$$
+
+Let index sequence
+
+$$
+I = \left \lbrace m \leqslant i \leqslant n \right \rbrace \tag {Theo2.29}
+$$
+
+Using (Theo2.27), (Theo2.28)
+
+$$
+d^2 \left( \boldsymbol{\xi}_{m} \right) \geqslant \dfrac {2} {3}d \\
+d^1 \left( \boldsymbol{\xi}_{n} \right) \geqslant \dfrac {2} {3}d
+\tag {Theo2.30}
+$$
+
+Using (Theo2.28), (Theo2.29), (Theo2.30)
+
+$$
+\exists t_{k_1} = \min \left \lbrace i \in I \middle \vert d^1 \left( \boldsymbol{\xi}_{i} \right) \geqslant \dfrac {d} {3} \right \rbrace
+$$
+
+Obviously:
+
+$$
+\begin{align*}
+& t_{k_1} > m \\
+& d^1 \left( \boldsymbol{\xi}_{t_{k_1} } \right) \geqslant \dfrac {d} {3} \\
+& d^1 \left( \boldsymbol{\xi}_{t_{k_1} - 1} \right) < \dfrac {d} {3}
+\end{align*} \tag {Theo2.31}
+$$
+
+Using (Theo2.27), (Theo2.31)
+
+$$
+d^2 \left( \boldsymbol{\xi}_{t_{k_1} - 1} \right) \geqslant\dfrac {2} {3}d  \tag {Theo2.32}
+$$
+
+Using (Theo2.25), (Theo2.32)
+
+$$
+d^2 \left( \boldsymbol{\xi}_{t_{k_1}} \right) \geqslant\dfrac {d} {3} \tag {Theo2.33}
+$$
+
+Using (Theo2.31), (Theo2.33),
+
+$$
+\begin{align*}
+    \left .
+    \begin{array}{l}
+    \boldsymbol{\xi}_{t_{k_1}} \not \in S^{1}_{lim} \\
+    \boldsymbol{\xi}_{t_{k_1}} \not \in S^{2}_{lim}
+    \end{array}
+    \right \rbrace
+    \implies \boldsymbol{\xi}_{t_{k_1}} \not \in S^{1}_{lim} \cup S^{2}_{lim}
+\end{align*} \tag {Theo2.34}
+$$
+
+Follow this way, there exists therefore an infinite sequence of $$k_1, k_2, \cdots$$ for which (Theo2.34) holds. Threfore all of its convergent subsequences converge to limit points for which (Theo2.34) holds, which is in contradiction with (Theo2.20). Therefore $$S_{lim}$$ is connected.
