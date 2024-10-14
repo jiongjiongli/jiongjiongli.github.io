@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Global Convergence of Modern Hopfield Network
+title: Modern Hopfield Network Global Convergence Explained
 ---
 
 ## Introduction
-This post provides comprehensive deduction of :
+This article provides a comprehensive explanation of Modern Hopfield Network Global Convergence, covering:
 
-1. Theorem 1 Global Convergence: Energy.
-2. Theorem 2 Global Convergence: Stationary Points.
+1. Energy.
+2. Stationary Points.
 
 ## Notations
 1. The $$p$$-norm of a vector is denoted: $$\left \lVert {\cdot} \right \rVert _p\text{,} 1 \leqslant p$$
@@ -36,6 +36,7 @@ $$
 where $$\text {} {\mathbf {x}_{i}} \in \mathbb {R}^{N}$$.
 
 ## Lemma 1
+
 $$
 \nabla _{\text {}{\mathbf {x}}} \operatorname{lse} \left ( \beta, \text {}{\mathbf {x}} \right ) = \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right)
 $$
@@ -47,7 +48,9 @@ $$
 $$
 
 where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
+
 ## Lemma 2
+
 The Jacobian $$J_s \left(\text {}{\mathbf {x}} \right)$$ of $$ \text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)= \operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $$ is
 
 $$
@@ -55,18 +58,23 @@ J_s \left(\text {}{\mathbf {x}} \right) = \dfrac {\partial \operatorname{softmax
 $$
 
 where $$\text {} {\mathbf {x}} \in \mathbb {R}^{N}$$.
+
 The Jacobian $$J \left(\boldsymbol{\xi} \right)$$ of $$\text {} {\boldsymbol{X}} \text {}{\mathbf {p}} \left(\boldsymbol{X}^T \boldsymbol{\xi} \right)= \text {} {\boldsymbol{X}} \operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $$ is
+
 $$
 J  \left(\boldsymbol{\xi} \right) = \dfrac {\partial \left( \text {} {\boldsymbol{X}} \operatorname{softmax}\left(\beta \boldsymbol{X}^T\boldsymbol{\xi} \right) \right)} {\partial \text {}{\boldsymbol{\xi}}} = \beta \boldsymbol{X} \left(\operatorname{diag}\left(\text {}{\mathbf {p}}\right) - \text {}{\mathbf {p}}\text {}{\mathbf {p}}^T \right) \boldsymbol{X}^T = \boldsymbol{X} J_s \boldsymbol{X}^T
 $$
 
 where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
+
 ## Lemma 3
+
 The Jacobian $$J_s \left(\text {}{\mathbf {x}} \right)$$ of $$\text {}{\mathbf {p}} \left(\text {}{\mathbf {x}} \right)=\operatorname{softmax}\left(\beta \text {}{\mathbf {x}} \right) $$ is symmetric and positive semi-definite where $$\text {} {\mathbf {x}} \in \mathbb {R}^{N}$$.
+
 The Jacobian $$J  \left(\boldsymbol{\xi} \right)$$ of $$\text {} {\boldsymbol{X}} \text {}{\mathbf {p}} \left(\boldsymbol{X}^T \boldsymbol{\xi} \right)=\text {} \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T \boldsymbol{\xi} \right) $$ is symmetric and positive semi-definite where $$\text {} {\boldsymbol{X}} \in \mathbb {R}^{d \times N}, \text {} {\boldsymbol{\xi}} \in \mathbb {R}^{d}$$.
 
 ### Proof
-According to Lemma 2, obviously they are symmetric.
+According to Lemma 2, they are symmetric.
 Given any $$\text {}{\mathbf {x}} \in \mathbb {R}^{N}$$, we have
 
 $$
@@ -552,10 +560,13 @@ $$
 $$
 
 Obviously $$\boldsymbol{\xi}_{t + 1} \in S$$. Thus
+
 $$
 \mathcal{A} \left ( \boldsymbol{\xi}_{t } \right ) = \underset{\boldsymbol{\xi} \in S} {\operatorname{argmin}} g \left(\boldsymbol{\xi}, \boldsymbol{\xi}_t \right) = \left \lbrace \boldsymbol{X} \operatorname{softmax}\left(\beta \boldsymbol{X}^T {\boldsymbol{\xi}}_t \right) \right \rbrace \tag {Theo2.5}
 $$
+
 Hence
+
 $$
 \text { if } \boldsymbol{\xi}_{t + 1} \neq \boldsymbol{\xi}_t, g \left(\boldsymbol{\xi}_{t + 1}, \boldsymbol{\xi}_t \right) \lt g \left(\boldsymbol{\xi}_{t}, \boldsymbol{\xi}_t \right)  \tag {Theo2.4}
 $$
